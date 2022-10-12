@@ -1,0 +1,31 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - .gitignore
+      - CHANGELOG.md
+      - CODE_OF_CONDUCT.md
+      - LICENSE.md
+      - README.md
+      - NuGet.Config
+      - ./*.yml
+
+pool:
+  vmImage: 'windows-2022'
+
+variables:
+- group: mako-iot-github
+- name: runSettingsFile
+  value: 'Tests\MakoIoT.Device.Utilities.TimeZones.Test\nano.runsettings'
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: CShark-Hub/Mako-IoT.Tools
+      endpoint: CShark-Hub
+
+steps:
+- template: azure-pipelines-templates/azure-pipelines-ci-template.yml@templates
