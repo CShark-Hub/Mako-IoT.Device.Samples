@@ -18,9 +18,7 @@ pool:
 variables:
 - group: mako-iot-github
 - name: runSettingsFile
-  value: 'Tests\MakoIoT.Device.Utilities.TimeZones.Test\nano.runsettings'
-- name: packageName
-  value: 'MakoIoT.Device.Utilities.TimeZones'
+  value: 'Tests\MakoIoT.Samples.WBC.Device.Tests\nano.runsettings'
 
 resources:
   repositories:
@@ -36,12 +34,3 @@ stages:
   - job:
     steps:
     - template: azure-pipelines-templates/azure-pipelines-ci-template.yml@templates
-
-- stage: PublishNuGet
-  displayName: "Publish NuGet"
-  dependsOn: BuildAndTest
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
-  jobs:
-  - job:
-    steps:
-    - template: azure-pipelines-templates/azure-pipelines-publish-template.yml@templates
