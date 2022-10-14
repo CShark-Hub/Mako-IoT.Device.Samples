@@ -31,7 +31,7 @@
       <HintPath>..\..\packages\nanoFramework.Iot.Device.DhcpServer.1.2.89\lib\Iot.Device.DhcpServer.dll</HintPath>
     </Reference>
     <Reference Include="Mako.nanoFramework.Json">
-      <HintPath>..\..\packages\Mako.nanoFramework.Json.2.2.8\lib\Mako.nanoFramework.Json.dll</HintPath>
+      <HintPath>..\..\packages\Mako.nanoFramework.Json.2.2.8.1\lib\Mako.nanoFramework.Json.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device">
       <HintPath>..\..\packages\MakoIoT.Device.1.0.5.24975\lib\MakoIoT.Device.dll</HintPath>
