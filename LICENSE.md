@@ -5,14 +5,14 @@ The accompanying program is provided under the terms of this MAKO-IoT permissive
 
 ## 1. Definitions.
 
-•	Contribution - means any work of authorship, including the original version of Software and any modifications, additions to that Software or Derivative Works thereof, that is submitted to Licensor for inclusion in Software by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner, excluding communication that is conspicuously marked as "Not a contribution."
-•	Contributor - means Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within Software.
-•	Derivative Works - means any work, in any form, that is based on (or derived from) Software and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship.
-•	Device - an electrical or mechanical object on which you can install Software or Derivative Work.
-•	Legal Entity - means an individual, company, or organization that has legal rights and obligations.
-•	Licensor – means the copyright owner or entity authorized by the copyright owner that is granting the license.
-•	Recipient – it's you, either an individual or Legal Entity which exercisies permissions granted by this license.
-•	Software – means MAKO-IoT Software in any version or form, made available under the license.
+-	Contribution - means any work of authorship, including the original version of Software and any modifications, additions to that Software or Derivative Works thereof, that is submitted to Licensor for inclusion in Software by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner, excluding communication that is conspicuously marked as "Not a contribution."
+-	Contributor - means Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within Software.
+-	Derivative Works - means any work, in any form, that is based on (or derived from) Software and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship.
+-	Device - an electrical or mechanical object on which you can install Software or Derivative Work.
+-	Legal Entity - means an individual, company, or organization that has legal rights and obligations.
+-	Licensor – means the copyright owner or entity authorized by the copyright owner that is granting the license.
+-	Recipient – it's you, either an individual or Legal Entity which exercisies permissions granted by this license.
+-	Software – means MAKO-IoT Software in any version or form, made available under the license.
 
 ## 2. Grant of Copyright License.
 
