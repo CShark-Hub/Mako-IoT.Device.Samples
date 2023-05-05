@@ -1,4 +1,11 @@
-# Project readme
+# Mako-IoT.Samples
+- [Messaging]() -- TODO
+- [Configuration API](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/ConfigurationAPI)
+- [Log Storage](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/LogStorage)
+- [Mediator](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/Mediator)
+- [Waste Bins Calendar (full product example)](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/WasteBinsCalendar)
+
+TODO: descriptions
 
 ## How to manually sync fork
 - Clone repository and navigate into folder
