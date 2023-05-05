@@ -13,3 +13,5 @@ Please take a moment to look at [README](https://github.com/CShark-Hub/mako-iot/
 - DON'T surprise us with big pull requests. Contact us instead so we can agree on the solution.
 - DON'T commit code that you're not the author of.
 - DO contact us if you're unsure of anything.
+# Contributor License Agreement
+By contributing to the project (i.e. submitting pull request) you agree to be bound by [Contributor License Agreement](https://github.com/CShark-Hub/Mako-IoT.Device.Base/blob/main/CLA.md)
