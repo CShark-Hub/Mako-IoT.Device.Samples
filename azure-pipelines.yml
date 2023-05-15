@@ -18,9 +18,9 @@ pool:
 variables:
 - group: mako-iot-github
 - name: runSettingsFile
-  value: 'Tests\MakoIoT.Device.Test\nano.runsettings'
+  value: 'Tests\MakoIoT.Device.Utilities.TimeZones.Test\nano.runsettings'
 - name: packageName
-  value: 'MakoIoT.Device'
+  value: 'MakoIoT.Device.Utilities.TimeZones'
 
 resources:
   repositories:
