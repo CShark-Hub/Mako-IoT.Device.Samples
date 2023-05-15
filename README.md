@@ -1,4 +1,5 @@
-# Project readme
+#  Mako-IoT.Device
+Base components for the main Device project (see [Mako.IoT.Home](https://github.com/CShark-Hub/Mako.IoT.Home)).
 
 ## How to manually sync fork
 - Clone repository and navigate into folder

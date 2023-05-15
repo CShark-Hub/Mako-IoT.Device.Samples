@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <NanoFrameworkProjectSystemPath>$(MSBuildExtensionsPath)\nanoFramework\v1.0\</NanoFrameworkProjectSystemPath>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props')" />
+  <ItemGroup>
+    <ProjectCapability Include="TestContainer" />
+  </ItemGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{11A8DD76-328B-46DF-9F39-F559912D0360};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>b3cabefc-de76-45dc-85e0-550b810f775a</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>MakoIoT.Device.Test</RootNamespace>
+    <AssemblyName>NFUnitTest</AssemblyName>
+    <IsCodedUITest>False</IsCodedUITest>
+    <IsTestProject>true</IsTestProject>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
+  <PropertyGroup>
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)\nano.runsettings</RunSettingsFilePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DeviceBuilderTest.cs" />
+    <Compile Include="IoTDeviceTests.cs" />
+    <Compile Include="Mocks\DeviceStartBehaviorMock.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MakoIoT.Device.Services.Interface">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.30.59281\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib, Version=1.14.3.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nanoFramework.DependencyInjection">
+      <HintPath>..\..\packages\nanoFramework.DependencyInjection.1.0.22\lib\nanoFramework.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.TestFramework">
+      <HintPath>..\..\packages\nanoFramework.TestFramework.2.1.81\lib\nanoFramework.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.UnitTestLauncher">
+      <HintPath>..\..\packages\nanoFramework.TestFramework.2.1.81\lib\nanoFramework.UnitTestLauncher.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nano.runsettings" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MakoIoT.Device\MakoIoT.Device.nfproj" />
+  </ItemGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <!-- MANUAL UPDATE HERE -->
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+  <Import Project="..\..\packages\nanoFramework.TestFramework.2.1.81\build\nanoFramework.TestFramework.targets" Condition="Exists('..\..\packages\nanoFramework.TestFramework.2.1.81\build\nanoFramework.TestFramework.targets')" />
+</Project>
