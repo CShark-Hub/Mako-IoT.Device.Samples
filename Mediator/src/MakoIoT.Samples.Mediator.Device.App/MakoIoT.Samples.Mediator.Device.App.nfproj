@@ -25,9 +25,6 @@
     <Reference Include="MakoIoT.Device">
       <HintPath>..\..\packages\MakoIoT.Device.1.0.32.25738\lib\MakoIoT.Device.dll</HintPath>
     </Reference>
-    <Reference Include="MakoIoT.Device.Services.DependencyInjection">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.DependencyInjection.1.0.3.25020\lib\MakoIoT.Device.Services.DependencyInjection.dll</HintPath>
-    </Reference>
     <Reference Include="MakoIoT.Device.Services.Interface">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.34.44535\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>

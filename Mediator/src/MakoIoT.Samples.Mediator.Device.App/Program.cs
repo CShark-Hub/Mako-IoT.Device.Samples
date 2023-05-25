@@ -1,6 +1,5 @@
 using System.Threading;
 using MakoIoT.Device;
-using MakoIoT.Device.Services.DependencyInjection;
 using MakoIoT.Device.Services.Mediator;
 using MakoIoT.Device.Services.Mediator.Extensions;
 using MakoIoT.Samples.Mediator.Device.Events;
@@ -27,13 +26,14 @@ namespace MakoIoT.Samples.Mediator.Device.App
                 .Build()
                 .Start();
 
-            var mediator = (IMediator)DI.Resolve(typeof(IMediator));
+            //TODO: fix this - nanoframework DI
+            // var mediator = (IMediator)DI.Resolve(typeof(IMediator));
 
-            mediator.Publish(new Event1 { Data = "Hello from Event1!" });
-            mediator.Publish(new Event2 { Text = "Hello from Event2!" });
-
-            var service1 = (IService1)DI.Resolve(typeof(IService1));
-            service1.DoSomething();
+            // mediator.Publish(new Event1 { Data = "Hello from Event1!" });
+            // mediator.Publish(new Event2 { Text = "Hello from Event2!" });
+            //
+            // var service1 = (IService1)DI.Resolve(typeof(IService1));
+            // service1.DoSomething();
 
             Thread.Sleep(Timeout.Infinite);
         }

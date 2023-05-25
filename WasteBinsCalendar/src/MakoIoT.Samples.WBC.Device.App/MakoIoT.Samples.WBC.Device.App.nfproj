@@ -31,9 +31,6 @@
     <Reference Include="Iot.Device.DhcpServer">
       <HintPath>..\..\packages\nanoFramework.Iot.Device.DhcpServer.1.2.284\lib\Iot.Device.DhcpServer.dll</HintPath>
     </Reference>
-    <Reference Include="Mako.nanoFramework.Json">
-      <HintPath>..\..\packages\Mako.nanoFramework.Json.2.2.8.1\lib\Mako.nanoFramework.Json.dll</HintPath>
-    </Reference>
     <Reference Include="MakoIoT.Device">
       <HintPath>..\..\packages\MakoIoT.Device.1.0.32.25738\lib\MakoIoT.Device.dll</HintPath>
     </Reference>
@@ -51,9 +48,6 @@
     </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationManager">
       <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.21.37054\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
-    </Reference>
-    <Reference Include="MakoIoT.Device.Services.DependencyInjection">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.DependencyInjection.1.0.3.25020\lib\MakoIoT.Device.Services.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.FileStorage">
       <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.27.63369\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>

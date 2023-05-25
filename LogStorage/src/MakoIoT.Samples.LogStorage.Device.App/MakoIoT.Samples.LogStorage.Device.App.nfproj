@@ -35,9 +35,6 @@
     <Reference Include="MakoIoT.Device.Services.Configuration.Metadata">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.Metadata.1.0.27.36284\lib\MakoIoT.Device.Services.Configuration.Metadata.dll</HintPath>
     </Reference>
-    <Reference Include="MakoIoT.Device.Services.DependencyInjection">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.DependencyInjection.1.0.3.25020\lib\MakoIoT.Device.Services.DependencyInjection.dll</HintPath>
-    </Reference>
     <Reference Include="MakoIoT.Device.Services.FileStorage">
       <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.27.63369\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>
     </Reference>

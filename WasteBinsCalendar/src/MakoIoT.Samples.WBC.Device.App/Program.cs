@@ -9,7 +9,6 @@ using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.ConfigurationManager.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager.Interface;
-using MakoIoT.Device.Services.DependencyInjection;
 using MakoIoT.Device.Services.FileStorage.Extensions;
 using MakoIoT.Device.Services.Logging.Configuration;
 using MakoIoT.Device.Services.Logging.Extensions;
@@ -120,7 +119,8 @@ namespace MakoIoT.Samples.WBC.Device.App
                 .Start();
 
             //initialize hardware buttons
-            var button = (ConfigButton)DI.BuildUp(typeof(ConfigButton));
+            //TODO: fix this - nanoframework DI
+            // var button = (ConfigButton)DI.BuildUp(typeof(ConfigButton));
 
             Thread.Sleep(Timeout.Infinite);
         }
