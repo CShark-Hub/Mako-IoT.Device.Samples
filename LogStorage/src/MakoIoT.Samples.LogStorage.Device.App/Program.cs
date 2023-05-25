@@ -24,7 +24,7 @@ namespace MakoIoT.Samples.LogStorage.Device.App
         public static void Main()
         {
             DeviceBuilder.Create()
-                .ConfigureDI(() =>
+                .ConfigureDI(services =>
                 {
 
                 })

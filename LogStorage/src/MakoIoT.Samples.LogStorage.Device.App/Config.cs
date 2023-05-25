@@ -5,10 +5,10 @@ namespace MakoIoT.Samples.LogStorage.Device.App
 {
     internal partial class Config
     {
-#if !DEBUG
+//#if !DEBUG
         
         internal static WiFiConfig WiFiConfig => new WiFiConfig();
         internal static LogStorageConfig LogStorageConfig => new LogStorageConfig();
-#endif
+//#endif
     }
 }
