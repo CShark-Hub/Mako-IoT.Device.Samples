@@ -23,9 +23,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Mako.nanoFramework.Json">
-      <HintPath>..\..\packages\Mako.nanoFramework.Json.2.2.8\lib\Mako.nanoFramework.Json.dll</HintPath>
-    </Reference>
     <Reference Include="MakoIoT.Device">
       <HintPath>..\..\packages\MakoIoT.Device.1.0.32.25738\lib\MakoIoT.Device.dll</HintPath>
     </Reference>
