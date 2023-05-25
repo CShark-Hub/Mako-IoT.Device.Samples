@@ -4,6 +4,7 @@ using MakoIoT.Device.Services.DependencyInjection;
 using MakoIoT.Device.Services.Mediator;
 using MakoIoT.Device.Services.Mediator.Extensions;
 using MakoIoT.Samples.Mediator.Device.Events;
+using nanoFramework.DependencyInjection;
 
 namespace MakoIoT.Samples.Mediator.Device.App
 {
@@ -12,10 +13,10 @@ namespace MakoIoT.Samples.Mediator.Device.App
         public static void Main()
         {
             DeviceBuilder.Create()
-                .ConfigureDI(() =>
+                .ConfigureDI(services => 
                 {
-                    DI.RegisterSingleton(typeof(IService1), typeof(Service1));
-                    DI.RegisterSingleton(typeof(Service2), typeof(Service2));
+                    services.AddSingleton(typeof(IService1), typeof(Service1));
+                    services.AddSingleton(typeof(Service2), typeof(Service2));
                 })
                 .AddMediator(options =>
                 {
