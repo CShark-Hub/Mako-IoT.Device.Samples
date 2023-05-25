@@ -8,7 +8,6 @@ using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.ConfigurationManager.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager.Interface;
-using MakoIoT.Device.Services.DependencyInjection;
 using MakoIoT.Device.Services.FileStorage.Extensions;
 using MakoIoT.Device.Services.Logging.Configuration;
 using MakoIoT.Device.Services.Logging.Extensions;
@@ -22,6 +21,7 @@ using MakoIoT.Device.Services.WiFi.Configuration;
 using MakoIoT.Device.Services.WiFi.Extensions;
 using MakoIoT.Samples.Api.Device.App.HardwareServices;
 using Microsoft.Extensions.Logging;
+using nanoFramework.DependencyInjection;
 
 namespace MakoIoT.Samples.Api.Device.App
 {
@@ -30,9 +30,9 @@ namespace MakoIoT.Samples.Api.Device.App
         public static void Main()
         {
             DeviceBuilder.Create()
-                .ConfigureDI(() =>
+                .ConfigureDI(services =>
                 {
-                    DI.RegisterSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
+                    services.AddSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
                 })
                 .AddMediator(o =>
                 {
@@ -41,7 +41,6 @@ namespace MakoIoT.Samples.Api.Device.App
                 })
                 .AddLogging(new LoggerConfig(LogLevel.Debug, new Hashtable
                 {
-                    { nameof(DI), LogLevel.Information },
                     { nameof(Server), LogLevel.Trace },
                 }))
                 .AddFileStorage()
@@ -75,7 +74,8 @@ namespace MakoIoT.Samples.Api.Device.App
                 .Start();
 
             //initialize hardware buttons
-            var button = (ConfigButton)DI.BuildUp(typeof(ConfigButton));
+            //TODO: fix this - nanoframework DI
+            // var button = (ConfigButton)DI.BuildUp(typeof(ConfigButton));
             
             Thread.Sleep(Timeout.Infinite);
         }
