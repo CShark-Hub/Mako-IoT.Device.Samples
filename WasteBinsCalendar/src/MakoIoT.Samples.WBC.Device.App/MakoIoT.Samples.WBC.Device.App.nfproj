@@ -26,106 +26,118 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Iot.Device.Button">
-      <HintPath>..\..\packages\nanoFramework.Iot.Device.Button.1.2.122\lib\Iot.Device.Button.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Iot.Device.Button.1.2.313\lib\Iot.Device.Button.dll</HintPath>
     </Reference>
     <Reference Include="Iot.Device.DhcpServer">
-      <HintPath>..\..\packages\nanoFramework.Iot.Device.DhcpServer.1.2.89\lib\Iot.Device.DhcpServer.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Iot.Device.DhcpServer.1.2.284\lib\Iot.Device.DhcpServer.dll</HintPath>
     </Reference>
     <Reference Include="Mako.nanoFramework.Json">
       <HintPath>..\..\packages\Mako.nanoFramework.Json.2.2.8.1\lib\Mako.nanoFramework.Json.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device">
-      <HintPath>..\..\packages\MakoIoT.Device.1.0.5.24975\lib\MakoIoT.Device.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.1.0.32.25738\lib\MakoIoT.Device.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Displays.Led">
-      <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.4.14975\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.24.17116\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Configuration">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.3.12083\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.21.23813\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Configuration.Metadata">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.Metadata.1.0.4.19171\lib\MakoIoT.Device.Services.Configuration.Metadata.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.Metadata.1.0.27.36284\lib\MakoIoT.Device.Services.Configuration.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationApi">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationApi.1.0.4.7983\lib\MakoIoT.Device.Services.ConfigurationApi.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationApi.1.0.23.22002\lib\MakoIoT.Device.Services.ConfigurationApi.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationManager">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.4.1531\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.21.37054\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.DependencyInjection">
       <HintPath>..\..\packages\MakoIoT.Device.Services.DependencyInjection.1.0.3.25020\lib\MakoIoT.Device.Services.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.FileStorage">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.4.25519\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.27.63369\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Interface">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.3.26226\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.34.44535\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Logging">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.2.29120\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.33.6768\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Mediator">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.3.42131\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.26.61682\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Scheduler">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Scheduler.1.0.4.29087\lib\MakoIoT.Device.Services.Scheduler.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Scheduler.1.0.30.386\lib\MakoIoT.Device.Services.Scheduler.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Server">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Server.1.0.5.24364\lib\MakoIoT.Device.Services.Server.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Server.1.0.27.36126\lib\MakoIoT.Device.Services.Server.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.WiFi">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.1.0.4.19677\lib\MakoIoT.Device.Services.WiFi.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.1.0.27.31853\lib\MakoIoT.Device.Services.WiFi.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.WiFi.AP">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.AP.1.0.4.14046\lib\MakoIoT.Device.Services.WiFi.AP.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.AP.1.0.28.12550\lib\MakoIoT.Device.Services.WiFi.AP.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.Invoker">
-      <HintPath>..\..\packages\MakoIoT.Device.Utilities.Invoker.1.0.1.17335\lib\MakoIoT.Device.Utilities.Invoker.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Utilities.Invoker.1.0.24.34787\lib\MakoIoT.Device.Utilities.Invoker.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.String">
-      <HintPath>..\..\packages\MakoIoT.Device.Utilities.String.1.0.2.14320\lib\MakoIoT.Device.Utilities.String.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Utilities.String.1.0.31.17475\lib\MakoIoT.Device.Utilities.String.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.TimeZones">
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.TimeZones.1.0.2.60063\lib\MakoIoT.Device.Utilities.TimeZones.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
-      <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.12.0\lib\mscorlib.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.DependencyInjection">
+      <HintPath>..\..\packages\nanoFramework.DependencyInjection.1.0.22\lib\nanoFramework.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Hardware.Esp32">
-      <HintPath>..\..\packages\nanoFramework.Hardware.Esp32.1.4.4\lib\nanoFramework.Hardware.Esp32.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Hardware.Esp32.1.6.3\lib\nanoFramework.Hardware.Esp32.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.Json">
+      <HintPath>..\..\packages\nanoFramework.Json.2.2.84\lib\nanoFramework.Json.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Logging">
-      <HintPath>..\..\packages\nanoFramework.Logging.1.1.25\lib\nanoFramework.Logging.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Logging.1.1.63\lib\nanoFramework.Logging.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Events">
-      <HintPath>..\..\packages\nanoFramework.Runtime.Events.1.11.1\lib\nanoFramework.Runtime.Events.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Runtime.Events.1.11.6\lib\nanoFramework.Runtime.Events.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Native">
-      <HintPath>..\..\packages\nanoFramework.Runtime.Native.1.5.4\lib\nanoFramework.Runtime.Native.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Runtime.Native.1.6.6\lib\nanoFramework.Runtime.Native.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.System.Collections">
-      <HintPath>..\..\packages\nanoFramework.System.Collections.1.4.0\lib\nanoFramework.System.Collections.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Collections.1.5.18\lib\nanoFramework.System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.System.Text">
+      <HintPath>..\..\packages\nanoFramework.System.Text.1.2.37\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.Device.Gpio">
-      <HintPath>..\..\packages\nanoFramework.System.Device.Gpio.1.1.22\lib\System.Device.Gpio.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Device.Gpio.1.1.28\lib\System.Device.Gpio.dll</HintPath>
     </Reference>
     <Reference Include="System.Device.Pwm">
-      <HintPath>..\..\packages\nanoFramework.System.Device.Pwm.1.0.1\lib\System.Device.Pwm.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Device.Pwm.1.1.6\lib\System.Device.Pwm.dll</HintPath>
     </Reference>
     <Reference Include="System.Device.Wifi">
-      <HintPath>..\..\packages\nanoFramework.System.Device.Wifi.1.5.27\lib\System.Device.Wifi.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Device.Wifi.1.5.54\lib\System.Device.Wifi.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem">
-      <HintPath>..\..\packages\nanoFramework.System.IO.FileSystem.1.1.11\lib\System.IO.FileSystem.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.IO.FileSystem.1.1.23\lib\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Streams">
+      <HintPath>..\..\packages\nanoFramework.System.IO.Streams.1.1.38\lib\System.IO.Streams.dll</HintPath>
     </Reference>
     <Reference Include="System.Net">
-      <HintPath>..\..\packages\nanoFramework.System.Net.1.10.24\lib\System.Net.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Net.1.10.52\lib\System.Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>..\..\packages\nanoFramework.System.Net.Http.1.5.30\lib\System.Net.Http.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Net.Http.1.5.84\lib\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading">
-      <HintPath>..\..\packages\nanoFramework.System.Threading.1.1.8\lib\System.Threading.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Threading.1.1.19\lib\System.Threading.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

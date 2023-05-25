@@ -27,6 +27,7 @@ using MakoIoT.Samples.WBC.Device.Configuration;
 using MakoIoT.Samples.WBC.Device.Services;
 using MakoIoT.Samples.WBC.Device.Tasks;
 using Microsoft.Extensions.Logging;
+using nanoFramework.DependencyInjection;
 
 namespace MakoIoT.Samples.WBC.Device.App
 {
@@ -35,18 +36,17 @@ namespace MakoIoT.Samples.WBC.Device.App
         public static void Main()
         {
             DeviceBuilder.Create()
-                .ConfigureDI(() =>
+                .ConfigureDI(services => 
                 {
-                    DI.RegisterSingleton(typeof(IBinsScheduleService), typeof(BinsScheduleService));
-                    DI.RegisterSingleton(typeof(IDisplayController), typeof(DisplayController));
-                    DI.RegisterSingleton(typeof(IDateTimeProvider), typeof(DateTimeProvider));
+                    services.AddSingleton(typeof(IBinsScheduleService), typeof(BinsScheduleService));
+                    services.AddSingleton(typeof(IDisplayController), typeof(DisplayController));
+                    services.AddSingleton(typeof(IDateTimeProvider), typeof(DateTimeProvider));
 
                     //Set R,G,B pins here. Fine tune LED color with calibration factors.
                     //Values going to RGB pins are multiplied by corresponding factor.
-                    // DI.RegisterInstance(typeof(IPixelDriver), new PwmPixelDriver(18, 19, 21, true, gFactor: 0.7));
-                    DI.RegisterInstance(typeof(IPixelDriver), new PwmPixelDriver(27, 26, 25, true)); //CSHARK
+                    services.AddSingleton(typeof(IPixelDriver), new PwmPixelDriver(27, 26, 25, true));
 
-                    DI.RegisterSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
+                    services.AddSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
                 })
 #if DEBUG
                 .AddLogging(new LoggerConfig(LogLevel.Debug, 
