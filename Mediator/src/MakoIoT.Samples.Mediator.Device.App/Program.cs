@@ -11,7 +11,7 @@ namespace MakoIoT.Samples.Mediator.Device.App
     {
         public static void Main()
         {
-            DeviceBuilder.Create()
+            var device = DeviceBuilder.Create()
                 .ConfigureDI(services => 
                 {
                     services.AddSingleton(typeof(IService1), typeof(Service1));
@@ -23,17 +23,17 @@ namespace MakoIoT.Samples.Mediator.Device.App
                     options.AddSubscriber(typeof(Event1), typeof(Service2));
                     options.AddSubscriber(typeof(Event2), typeof(Service2));
                 })
-                .Build()
-                .Start();
+                .Build();
 
-            //TODO: fix this - nanoframework DI
-            // var mediator = (IMediator)DI.Resolve(typeof(IMediator));
+            device.Start();
 
-            // mediator.Publish(new Event1 { Data = "Hello from Event1!" });
-            // mediator.Publish(new Event2 { Text = "Hello from Event2!" });
-            //
-            // var service1 = (IService1)DI.Resolve(typeof(IService1));
-            // service1.DoSomething();
+            var mediator = (IMediator)device.ServiceProvider.GetService(typeof(IMediator));
+
+            mediator.Publish(new Event1 { Data = "Hello from Event1!" });
+            mediator.Publish(new Event2 { Text = "Hello from Event2!" });
+            
+            var service1 = (IService1)device.ServiceProvider.GetService(typeof(IService1));
+            service1.DoSomething();
 
             Thread.Sleep(Timeout.Infinite);
         }
