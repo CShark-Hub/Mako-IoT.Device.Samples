@@ -20,8 +20,6 @@
   <ItemGroup>
     <Compile Include="Configuration\WasteBinsCalendarConfig.cs" />
     <Compile Include="Extensions\BinsDayExtension.cs" />
-    <Compile Include="Extensions\IsoDateTimeJsonConverter.cs" />
-    <Compile Include="Extensions\LowerCaseMemberNameResolver.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Model\BinColors.cs" />
     <Compile Include="Model\BinsDay.cs" />
@@ -46,13 +44,13 @@
       <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.34.44535\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.ICalParser">
-      <HintPath>..\..\packages\MakoIoT.Device.Utilities.ICalParser.1.0.21.45087\lib\MakoIoT.Device.Utilities.ICalParser.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Utilities.ICalParser.1.0.23.31394\lib\MakoIoT.Device.Utilities.ICalParser.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.Invoker">
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.Invoker.1.0.24.34787\lib\MakoIoT.Device.Utilities.Invoker.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.TimeZones">
-      <HintPath>..\..\packages\MakoIoT.Device.Utilities.TimeZones.1.0.8.16939\lib\MakoIoT.Device.Utilities.TimeZones.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Utilities.TimeZones.1.0.9.41101\lib\MakoIoT.Device.Utilities.TimeZones.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
@@ -61,7 +59,7 @@
       <HintPath>..\..\packages\nanoFramework.DependencyInjection.1.0.22\lib\nanoFramework.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Json">
-      <HintPath>..\..\packages\nanoFramework.Json.2.2.84\lib\nanoFramework.Json.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Json.2.2.99\lib\nanoFramework.Json.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Logging">
       <HintPath>..\..\packages\nanoFramework.Logging.1.1.63\lib\nanoFramework.Logging.dll</HintPath>
