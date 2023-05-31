@@ -29,10 +29,10 @@
       <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.34.44535\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Logging">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.33.6768\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.35.36503\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Logging.Storage">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.Storage.1.0.31.29711\lib\MakoIoT.Device.Services.Logging.Storage.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.Storage.1.0.34.31459\lib\MakoIoT.Device.Services.Logging.Storage.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Mediator">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.26.61682\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>
@@ -50,7 +50,7 @@
       <HintPath>..\..\packages\nanoFramework.DependencyInjection.1.0.22\lib\nanoFramework.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Json">
-      <HintPath>..\..\packages\nanoFramework.Json.2.2.84\lib\nanoFramework.Json.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Json.2.2.99\lib\nanoFramework.Json.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Logging">
       <HintPath>..\..\packages\nanoFramework.Logging.1.1.63\lib\nanoFramework.Logging.dll</HintPath>
