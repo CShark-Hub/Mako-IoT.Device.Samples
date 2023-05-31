@@ -44,10 +44,10 @@
       <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.Metadata.1.0.27.36284\lib\MakoIoT.Device.Services.Configuration.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationApi">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationApi.1.0.30.27570\lib\MakoIoT.Device.Services.ConfigurationApi.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationApi.1.0.32.37191\lib\MakoIoT.Device.Services.ConfigurationApi.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationManager">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.27.20191\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.28.52224\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.FileStorage">
       <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.27.63369\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>
@@ -56,7 +56,7 @@
       <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.34.44535\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Logging">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.34.44899\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.35.36503\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Mediator">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.26.61682\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>

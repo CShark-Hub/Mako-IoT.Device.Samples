@@ -20,8 +20,6 @@
   <ItemGroup>
     <Compile Include="Configuration\WasteBinsCalendarConfig.cs" />
     <Compile Include="Extensions\BinsDayExtension.cs" />
-    <Compile Include="Extensions\IsoDateTimeJsonConverter.cs" />
-    <Compile Include="Extensions\LowerCaseMemberNameResolver.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Model\BinColors.cs" />
     <Compile Include="Model\BinsDay.cs" />

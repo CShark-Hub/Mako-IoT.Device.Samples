@@ -34,7 +34,7 @@ namespace MakoIoT.Samples.WBC.Device.App
     {
         public static void Main()
         {
-            DeviceBuilder.Create()
+            var device = DeviceBuilder.Create()
                 .ConfigureDI(services => 
                 {
                     services.AddSingleton(typeof(IBinsScheduleService), typeof(BinsScheduleService));
@@ -63,10 +63,12 @@ namespace MakoIoT.Samples.WBC.Device.App
                     {
                         Tasks = new[]
                         {
-                            new SchedulerTaskConfig { TaskId = nameof(ShowBinsScheduleTask), IntervalMs = 600000 }
+                            new SchedulerTaskConfig { TaskId = nameof(ShowBinsScheduleTask), IntervalMs = 30000 }
                         }
-                    }, true);
+                    });
+
                     cfg.WriteDefault(WiFiConfig.SectionName, new WiFiConfig());
+
                     cfg.WriteDefault(WiFiAPConfig.SectionName, new WiFiAPConfig
                     {
                         Ssid = "MAKO-IoT Device",
@@ -75,6 +77,7 @@ namespace MakoIoT.Samples.WBC.Device.App
 
                     cfg.WriteDefault(WasteBinsCalendarConfig.SectionName, new WasteBinsCalendarConfig
                     {
+                        Timezone = "CET-1CEST,M3.5.0,M10.5.0/3",
                         BinsNames = new()
                         {
                             { "zmieszane", "Black" },
@@ -83,8 +86,7 @@ namespace MakoIoT.Samples.WBC.Device.App
                             { "szkło", "Green" },
                             { "papier", "Blue" },
                             { "SZOP", "Red" }
-                        }
-
+                        },
                     });
                 })
                 .AddFileStorage()
@@ -92,35 +94,35 @@ namespace MakoIoT.Samples.WBC.Device.App
                 {
                     options.AddTask(typeof(ShowBinsScheduleTask), nameof(ShowBinsScheduleTask));
                 })
-                .AddMediator(o =>
-                {
-                    o.AddSubscriber(typeof(ConfigModeToggleEvent), typeof(IConfigManager));
-                    o.AddSubscriber(typeof(ResetToDefaultsEvent), typeof(IConfigManager));
-                })
-                .AddWiFiInterfaceManager()
-                .AddConfigurationManager()
-                .AddWebServer(o =>
-                {
-                    o.Port = 80;
-                    o.Protocol = HttpProtocol.Http;
-                     o.AddConfigurationApi();
-                })
-                .AddConfigurationMetadata(o =>
-                {
-                    o.AddDeviceMetadata(@$"{{""Name"":""Kubełek 1.0"",""Manufacturer"":""CSHARK"",""SerialNo"":""000001"",""ConfigSections"":
-[{{""Name"":""{WiFiConfig.SectionName}"",""Label"":""Wi-Fi""}},
-{{""Name"":""{WasteBinsCalendarConfig.SectionName}"",""Label"":""Waste Collection Calendar""}},
-{{""Name"":""{WiFiAPConfig.SectionName}"",""Label"":""Wi-Fi Access Point"",""IsHidden"":true}}],""HideOtherSections"":true}}");
-                    o.AddMetadata(WiFiConfig.SectionName, MakoIoT.Device.Services.WiFi.Configuration.Metadata.WiFiConfig);
-                    o.AddMetadata(WiFiAPConfig.SectionName, MakoIoT.Device.Services.WiFi.AP.Configuration.Metadata.WiFiAPConfig);
-                    o.AddMetadata(WasteBinsCalendarConfig.SectionName, @"{""Name"":""WasteBinsCalendar"",""Label"":""Waste Collection Calendar"",""IsHidden"":false,""Parameters"":[{""Name"":""CalendarUrl"",""Type"":""string"",""Label"":""Calendar URL (iCal)"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""ServiceCertificate"",""Type"":""text"",""Label"":""HTTPS Certificate (required if URL is https://)"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""Timezone"",""Type"":""timezone"",""Label"":""Time zone"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""BinsNames"",""Type"":""text"",""Label"":""Calendar event text to bin colour mapping"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null}]}");
-                })
-                .Build()
-                .Start();
+                 .AddMediator(o =>
+                 {
+                     o.AddSubscriber(typeof(ConfigModeToggleEvent), typeof(IConfigManager));
+                     o.AddSubscriber(typeof(ResetToDefaultsEvent), typeof(IConfigManager));
+                 })
+                 .AddWiFiInterfaceManager()
+                 .AddConfigurationManager()
+                 .AddWebServer(o =>
+                 {
+                     o.Port = 80;
+                     o.Protocol = HttpProtocol.Http;
+                      o.AddConfigurationApi();
+                 })
+//                 .AddConfigurationMetadata(o =>
+//                 {
+//                     o.AddDeviceMetadata(@$"{{""Name"":""Kubełek 1.0"",""Manufacturer"":""CSHARK"",""SerialNo"":""000001"",""ConfigSections"":
+// [{{""Name"":""{WiFiConfig.SectionName}"",""Label"":""Wi-Fi""}},
+// {{""Name"":""{WasteBinsCalendarConfig.SectionName}"",""Label"":""Waste Collection Calendar""}},
+// {{""Name"":""{WiFiAPConfig.SectionName}"",""Label"":""Wi-Fi Access Point"",""IsHidden"":true}}],""HideOtherSections"":true}}");
+//                     o.AddMetadata(WiFiConfig.SectionName, MakoIoT.Device.Services.WiFi.Configuration.Metadata.WiFiConfig);
+//                     o.AddMetadata(WiFiAPConfig.SectionName, MakoIoT.Device.Services.WiFi.AP.Configuration.Metadata.WiFiAPConfig);
+//                     o.AddMetadata(WasteBinsCalendarConfig.SectionName, @"{""Name"":""WasteBinsCalendar"",""Label"":""Waste Collection Calendar"",""IsHidden"":false,""Parameters"":[{""Name"":""CalendarUrl"",""Type"":""string"",""Label"":""Calendar URL (iCal)"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""ServiceCertificate"",""Type"":""text"",""Label"":""HTTPS Certificate (required if URL is https://)"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""Timezone"",""Type"":""timezone"",""Label"":""Time zone"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""BinsNames"",""Type"":""text"",""Label"":""Calendar event text to bin colour mapping"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null}]}");
+//                 })
+                .Build();
+
+                device.Start();
 
             //initialize hardware buttons
-            //TODO: fix this - nanoframework DI
-            // var button = (ConfigButton)DI.BuildUp(typeof(ConfigButton));
+            var button = (ConfigButton)device.ServiceProvider.GetService(typeof(ConfigButton));
 
             Thread.Sleep(Timeout.Infinite);
         }
