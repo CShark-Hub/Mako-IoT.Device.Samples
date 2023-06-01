@@ -41,6 +41,7 @@ Global
 		SolutionGuid = {AA5D8DFF-5621-4BDE-95A5-E88858D1F0B4}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MakoIoT.Samples.Messaging.Shared\MakoIoT.Samples.Messaging.Shared.projitems*{35bc89d5-f941-49d9-bc44-259ac7594105}*SharedItemsImports = 5
 		MakoIoT.Samples.Messaging.Shared\MakoIoT.Samples.Messaging.Shared.projitems*{9a0e7dc6-6da0-4de5-8721-295df70e46b5}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
