@@ -11,6 +11,7 @@ using MakoIoT.Device.Services.Logging.Extensions;
 using MakoIoT.Device.Services.Messaging.Extensions;
 using MakoIoT.Device.Services.Mqtt.Configuration;
 using MakoIoT.Device.Services.Mqtt.Extensions;
+using MakoIoT.Device.Services.Scheduler.Extensions;
 using MakoIoT.Device.Services.WiFi.Configuration;
 using MakoIoT.Device.Services.WiFi.Extensions;
 using MakoIoT.Samples.Messaging.Device.App.HardwareServices;
@@ -44,6 +45,7 @@ namespace MakoIoT.Samples.Messaging.Device.App
                     o.AddDirectMessageConsumer(typeof(BlinkCommand), typeof(BlinkCommandConsumer), ConsumeStrategy.LastMessageWins);
                 })
                 .AddWiFi()
+                .AddScheduler(o => { })
                 .AddDataProviders(o =>
                 {
                     o.AddDataProvider(typeof(HelloWorldDataProvider), nameof(HelloWorldDataProvider));

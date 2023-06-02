@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="MakoIoT.Core.Services.Interface" Version="1.0.20.41353" />
     <PackageReference Include="MakoIoT.Core.Services.Messaging" Version="1.0.20.11113" />
-    <PackageReference Include="MakoIoT.Core.Services.Mqtt" Version="1.0.22.13196" />
+    <PackageReference Include="MakoIoT.Core.Services.Mqtt" Version="1.0.25.65467" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
   </ItemGroup>

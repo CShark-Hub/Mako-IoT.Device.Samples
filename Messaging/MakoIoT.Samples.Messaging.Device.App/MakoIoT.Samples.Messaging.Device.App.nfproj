@@ -58,6 +58,9 @@
     <Reference Include="MakoIoT.Device.Services.Mqtt">
       <HintPath>..\packages\MakoIoT.Device.Services.Mqtt.1.0.41.213\lib\MakoIoT.Device.Services.Mqtt.dll</HintPath>
     </Reference>
+    <Reference Include="MakoIoT.Device.Services.Scheduler">
+      <HintPath>..\packages\MakoIoT.Device.Services.Scheduler.1.0.31.52146\lib\MakoIoT.Device.Services.Scheduler.dll</HintPath>
+    </Reference>
     <Reference Include="MakoIoT.Device.Services.WiFi">
       <HintPath>..\packages\MakoIoT.Device.Services.WiFi.1.0.28.50821\lib\MakoIoT.Device.Services.WiFi.dll</HintPath>
     </Reference>
