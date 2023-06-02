@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MakoIoT.Core.Services.Interface" Version="1.0.20.41353" />
+    <PackageReference Include="MakoIoT.Core.Services.Messaging" Version="1.0.20.11113" />
+    <PackageReference Include="MakoIoT.Core.Services.Mqtt" Version="1.0.25.65467" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+  </ItemGroup>
+
+  <Import Project="..\MakoIoT.Samples.Messaging.Shared\MakoIoT.Samples.Messaging.Shared.projitems" Label="Shared" />
+
+</Project>

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakoIoT.Samples.Messaging.Console", "MakoIoT.Samples.Messaging.Console\MakoIoT.Samples.Messaging.Console.csproj", "{35BC89D5-F941-49D9-BC44-259AC7594105}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Samples.Messaging.Device", "MakoIoT.Samples.Messaging.Device\MakoIoT.Samples.Messaging.Device.nfproj", "{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Samples.Messaging.Device.App", "MakoIoT.Samples.Messaging.Device.App\MakoIoT.Samples.Messaging.Device.App.nfproj", "{90A36D9F-5CC9-4C52-B258-B77954F13965}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MakoIoT.Samples.Messaging.Shared", "MakoIoT.Samples.Messaging.Shared\MakoIoT.Samples.Messaging.Shared.shproj", "{9A0E7DC6-6DA0-4DE5-8721-295DF70E46B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35BC89D5-F941-49D9-BC44-259AC7594105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35BC89D5-F941-49D9-BC44-259AC7594105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35BC89D5-F941-49D9-BC44-259AC7594105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35BC89D5-F941-49D9-BC44-259AC7594105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA5BD1F-E7EE-44FF-BF9B-124CB9347FE8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{90A36D9F-5CC9-4C52-B258-B77954F13965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A36D9F-5CC9-4C52-B258-B77954F13965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A36D9F-5CC9-4C52-B258-B77954F13965}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{90A36D9F-5CC9-4C52-B258-B77954F13965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A36D9F-5CC9-4C52-B258-B77954F13965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A36D9F-5CC9-4C52-B258-B77954F13965}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA5D8DFF-5621-4BDE-95A5-E88858D1F0B4}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MakoIoT.Samples.Messaging.Shared\MakoIoT.Samples.Messaging.Shared.projitems*{35bc89d5-f941-49d9-bc44-259ac7594105}*SharedItemsImports = 5
+		MakoIoT.Samples.Messaging.Shared\MakoIoT.Samples.Messaging.Shared.projitems*{9a0e7dc6-6da0-4de5-8721-295df70e46b5}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
