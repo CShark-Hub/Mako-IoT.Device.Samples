@@ -29,7 +29,7 @@ namespace MakoIoT.Samples.Api.Device.App
     {
         public static void Main()
         {
-            DeviceBuilder.Create()
+            var device = DeviceBuilder.Create()
                 .ConfigureDI(services =>
                 {
                     services.AddSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
@@ -70,12 +70,12 @@ namespace MakoIoT.Samples.Api.Device.App
                     o.AddMetadata(WiFiConfig.SectionName, MakoIoT.Device.Services.WiFi.Configuration.Metadata.WiFiConfig);
                     o.AddMetadata(WiFiAPConfig.SectionName, MakoIoT.Device.Services.WiFi.AP.Configuration.Metadata.WiFiAPConfig);
                 })
-                .Build()
-                .Start();
+                .Build();
+
+                device.Start();
 
             //initialize hardware buttons
-            //TODO: fix this - nanoframework DI
-            // var button = (ConfigButton)DI.BuildUp(typeof(ConfigButton));
+            var button = (ConfigButton)device.ServiceProvider.GetService(typeof(ConfigButton));
             
             Thread.Sleep(Timeout.Infinite);
         }
