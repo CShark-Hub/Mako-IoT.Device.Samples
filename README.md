@@ -1,19 +1,11 @@
-# Mako-IoT.Samples
-- [Messaging]() -- TODO
-- [Configuration API](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/ConfigurationAPI)
-- [Log Storage](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/LogStorage)
-- [Mediator](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/Mediator)
-- [Waste Bins Calendar (full product example)](https://github.com/CShark-Hub/Mako-IoT.Samples/tree/main/WasteBinsCalendar)
-
-TODO: descriptions
-
-## How to manually sync fork
-- Clone repository and navigate into folder
-- From command line execute bellow commands
-- **git remote add upstream https://github.com/CShark-Hub/Mako-IoT.Base.git**
-- **git fetch upstream**
-- **git rebase upstream/main**
-- If there are any conflicts, resolve them
-  - After run **git rebase --continue**
-  - Check for conflicts again
-- **git push -f origin main**
+# Mako-IoT Samples
+## [Messaging](https://github.com/CShark-Hub/Mako-IoT.Device.Samples/tree/main/Messaging)
+Demonstrates two-way communication between device (nanoFramework) and console app (.NET Core) through [message bus](https://github.com/CShark-Hub/Mako-IoT.Device.Services.Messaging). Routing is done automatically, based on message types. Strongly-typed data contracts are shared in code across both apps. Transport layer is done through MQTT.
+## [Mediator](https://github.com/CShark-Hub/Mako-IoT.Device.Samples/tree/main/Mediator)
+Practical example of [mediator](https://github.com/CShark-Hub/Mako-IoT.Device.Services.Mediator) usage. Demonstrates in-process communication between two services (classes) that don't know anything about one another.
+## [Waste Bins Calendar](https://github.com/CShark-Hub/Mako-IoT.Device.Samples/tree/main/WasteBinsCalendar)
+Project of a device, which indicates bins for colloctions on a given day. It demonstrates how to compose multiple MAKO IoT building blocks into a useful product :)
+## [Configuration API](https://github.com/CShark-Hub/Mako-IoT.Device.Samples/tree/main/ConfigurationAPI)
+Demonstrates how to use [web server](https://github.com/CShark-Hub/Mako-IoT.Device.Services.Server) in [WiFi access point](https://github.com/CShark-Hub/Mako-IoT.Device.Services.WiFi.AP) mode with [configuration manager](https://github.com/CShark-Hub/Mako-IoT.Device.Services.ConfigurationManager) and [API](https://github.com/CShark-Hub/Mako-IoT.Device.Services.ConfigurationApi) to configure a device.
+## [Log Storage](https://github.com/CShark-Hub/Mako-IoT.Device.Samples/tree/main/LogStorage)
+Example usage of [logging](https://github.com/CShark-Hub/Mako-IoT.Device.Services.Logging.Storage) to local storage and sending out the logs to Elasticsearch server.
