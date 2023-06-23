@@ -7,6 +7,11 @@ namespace MakoIoT.Samples.WBC.Device.Services
 {
     public class DisplayController : IDisplayController
     {
+        public static readonly Color ColorBlank = new Color(0, 0, 0);
+        public static readonly Color ColorUpdating = new Color(255, 0, 255);
+        public static readonly Color ColorError = new Color(255, 0, 0);
+        public static readonly Color ColorConfigMode = new Color(255, 255, 0);
+
         private readonly ILogger _logger;
         private readonly RgbPixel _pixel;
         private Thread _displayThread;
@@ -35,7 +40,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
                     {
                         _pixel.Transition(bins[i], _cancellationToken);
                         _cancellationToken.WaitHandle.WaitOne(1000, false);
-                        _pixel.Transition(new Color(0, 0, 0), _cancellationToken);
+                        _pixel.Transition(ColorBlank, _cancellationToken);
                     }
                 }
             });
@@ -65,7 +70,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
         public void Blank()
         {
             Cancel();
-            _pixel.SetColor(new Color(0, 0, 0));
+            _pixel.SetColor(ColorBlank);
         }
 
         public void DisplayError()
@@ -74,9 +79,9 @@ namespace MakoIoT.Samples.WBC.Device.Services
             {
                 while (!_cancellationToken.IsCancellationRequested)
                 {
-                    _pixel.SetColor(new Color(255,0,0));
+                    _pixel.SetColor(ColorError);
                     _cancellationToken.WaitHandle.WaitOne(500, false);
-                    _pixel.SetColor(new Color(0, 0, 0));
+                    _pixel.SetColor(ColorBlank);
                     _cancellationToken.WaitHandle.WaitOne(3000, false);
                 }
             });
@@ -88,9 +93,9 @@ namespace MakoIoT.Samples.WBC.Device.Services
             {
                 while (!_cancellationToken.IsCancellationRequested)
                 {
-                    _pixel.SetColor(new Color(255, 0, 255));
+                    _pixel.SetColor(ColorUpdating);
                     _cancellationToken.WaitHandle.WaitOne(2000, false);
-                    _pixel.SetColor(new Color(0, 0, 0));
+                    _pixel.SetColor(ColorBlank);
                     _cancellationToken.WaitHandle.WaitOne(500, false);
                 }
             });
@@ -101,9 +106,9 @@ namespace MakoIoT.Samples.WBC.Device.Services
             Cancel();
             for (int i = 0; i < 3; i++)
             {
-                _pixel.SetColor(new Color(255, 0, 255));
+                _pixel.SetColor(ColorUpdating);
                 Thread.Sleep(500);
-                _pixel.SetColor(new Color(0, 0, 0));
+                _pixel.SetColor(ColorBlank);
                 Thread.Sleep(500);
             }
 
@@ -115,9 +120,9 @@ namespace MakoIoT.Samples.WBC.Device.Services
             {
                 while (!_cancellationToken.IsCancellationRequested)
                 {
-                    _pixel.SetColor(new Color(255, 255, 0));
+                    _pixel.SetColor(ColorConfigMode);
                     _cancellationToken.WaitHandle.WaitOne(1000, false);
-                    _pixel.SetColor(new Color(0, 0, 0));
+                    _pixel.SetColor(ColorBlank);
                     _cancellationToken.WaitHandle.WaitOne(1000, false);
                 }
             });
