@@ -3,7 +3,7 @@ using MakoIoT.Samples.WBC.Device.Services;
 using Microsoft.Extensions.Logging;
 using nanoFramework.Runtime.Native;
 
-namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
+namespace MakoIoT.Samples.WBC.Device.Esp32.HardwareServices
 {
     public class DeviceControlService : IDeviceControl
     {

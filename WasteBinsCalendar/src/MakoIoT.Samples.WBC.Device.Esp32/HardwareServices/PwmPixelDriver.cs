@@ -3,7 +3,7 @@ using System.Device.Pwm;
 using MakoIoT.Device.Displays.Led;
 using nanoFramework.Hardware.Esp32;
 
-namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
+namespace MakoIoT.Samples.WBC.Device.Esp32.HardwareServices
 {
     /// <summary>
     /// ESP32 PWM RGB LED driver

@@ -3,7 +3,7 @@ using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.Mediator;
 using Microsoft.Extensions.Logging;
 
-namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
+namespace MakoIoT.Samples.WBC.Device.Esp32.HardwareServices
 {
     public class ConfigButton
     {

@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestsHardware", "TestsHardw
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Samples.WBC.Device.HardwareTest", "TestsHardware\MakoIoT.Samples.WBC.Device.HardwareTest\MakoIoT.Samples.WBC.Device.HardwareTest.nfproj", "{DBE458C8-6EFD-4D73-95D9-A5CB05040D1A}"
 EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Samples.WBC.Device.Esp32", "src\MakoIoT.Samples.WBC.Device.Esp32\MakoIoT.Samples.WBC.Device.Esp32.nfproj", "{95702E4B-007B-4106-A208-7FAAE1F1299C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,12 @@ Global
 		{DBE458C8-6EFD-4D73-95D9-A5CB05040D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBE458C8-6EFD-4D73-95D9-A5CB05040D1A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBE458C8-6EFD-4D73-95D9-A5CB05040D1A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{95702E4B-007B-4106-A208-7FAAE1F1299C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95702E4B-007B-4106-A208-7FAAE1F1299C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95702E4B-007B-4106-A208-7FAAE1F1299C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{95702E4B-007B-4106-A208-7FAAE1F1299C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95702E4B-007B-4106-A208-7FAAE1F1299C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95702E4B-007B-4106-A208-7FAAE1F1299C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{75BBB3BC-8AAD-4210-A688-3C1BEC56037C} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 		{DD52E9B9-7DE3-43DF-A5F2-7D59BD82AB02} = {A1D0E3C5-D9E6-4EC8-BA95-DFC69E5EA941}
 		{DBE458C8-6EFD-4D73-95D9-A5CB05040D1A} = {3817677E-8B9F-4F59-9994-FB318138E8EC}
+		{95702E4B-007B-4106-A208-7FAAE1F1299C} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E967760-12B5-4261-9935-A04AD73A6476}
