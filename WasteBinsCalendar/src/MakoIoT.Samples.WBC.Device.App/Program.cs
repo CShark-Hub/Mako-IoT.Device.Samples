@@ -3,13 +3,13 @@ using System.Threading;
 using MakoIoT.Device;
 using MakoIoT.Device.Displays.Led;
 using MakoIoT.Device.Services.Configuration.Extensions;
-using MakoIoT.Device.Services.Configuration.Metadata.Extensions;
 using MakoIoT.Device.Services.ConfigurationApi.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.ConfigurationManager.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager.Interface;
 using MakoIoT.Device.Services.FileStorage.Extensions;
+using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Logging.Configuration;
 using MakoIoT.Device.Services.Logging.Extensions;
 using MakoIoT.Device.Services.Mediator.Extensions;
@@ -25,8 +25,8 @@ using MakoIoT.Samples.WBC.Device.App.HardwareServices;
 using MakoIoT.Samples.WBC.Device.Configuration;
 using MakoIoT.Samples.WBC.Device.Services;
 using MakoIoT.Samples.WBC.Device.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using nanoFramework.DependencyInjection;
 
 namespace MakoIoT.Samples.WBC.Device.App
 {
@@ -48,13 +48,9 @@ namespace MakoIoT.Samples.WBC.Device.App
                     services.AddSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
                 })
 #if DEBUG
-                .AddLogging(new LoggerConfig(LogLevel.Debug, 
-                    new Hashtable
-                    {
-                        {"DI", LogLevel.Information}
-                    }))
+                .AddLogging(new LoggerConfig(LogEventLevel.Trace))
 #else
-                .AddLogging(new LoggerConfig(LogLevel.Information))
+                .AddLogging(new LoggerConfig(LogEventLevel.Information))
 #endif
                 .AddWiFi()
                 .AddConfiguration(cfg =>
@@ -107,16 +103,7 @@ namespace MakoIoT.Samples.WBC.Device.App
                      o.Protocol = HttpProtocol.Http;
                       o.AddConfigurationApi();
                  })
-//                 .AddConfigurationMetadata(o =>
-//                 {
-//                     o.AddDeviceMetadata(@$"{{""Name"":""Kubełek 1.0"",""Manufacturer"":""CSHARK"",""SerialNo"":""000001"",""ConfigSections"":
-// [{{""Name"":""{WiFiConfig.SectionName}"",""Label"":""Wi-Fi""}},
-// {{""Name"":""{WasteBinsCalendarConfig.SectionName}"",""Label"":""Waste Collection Calendar""}},
-// {{""Name"":""{WiFiAPConfig.SectionName}"",""Label"":""Wi-Fi Access Point"",""IsHidden"":true}}],""HideOtherSections"":true}}");
-//                     o.AddMetadata(WiFiConfig.SectionName, MakoIoT.Device.Services.WiFi.Configuration.Metadata.WiFiConfig);
-//                     o.AddMetadata(WiFiAPConfig.SectionName, MakoIoT.Device.Services.WiFi.AP.Configuration.Metadata.WiFiAPConfig);
-//                     o.AddMetadata(WasteBinsCalendarConfig.SectionName, @"{""Name"":""WasteBinsCalendar"",""Label"":""Waste Collection Calendar"",""IsHidden"":false,""Parameters"":[{""Name"":""CalendarUrl"",""Type"":""string"",""Label"":""Calendar URL (iCal)"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""ServiceCertificate"",""Type"":""text"",""Label"":""HTTPS Certificate (required if URL is https://)"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""Timezone"",""Type"":""timezone"",""Label"":""Time zone"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null},{""Name"":""BinsNames"",""Type"":""text"",""Label"":""Calendar event text to bin colour mapping"",""IsHidden"":false,""IsSecret"":false,""DefaultValue"":null}]}");
-//                 })
+
                 .Build();
 
                 device.Start();

@@ -12,6 +12,11 @@ namespace MakoIoT.Samples.WBC.Device.Tests.Mocks
             return ConfigSection;
         }
 
+        public bool TryGetConfigSection(string sectionName, Type objectType, out object section)
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdateConfigSection(string sectionName, object section)
         {
             throw new NotImplementedException();
