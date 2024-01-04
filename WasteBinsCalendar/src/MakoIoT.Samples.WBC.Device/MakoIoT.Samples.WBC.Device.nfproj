@@ -37,9 +37,6 @@
     <Reference Include="MakoIoT.Device.Displays.Led">
       <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.26.27934\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
     </Reference>
-    <Reference Include="MakoIoT.Device.Services.Configuration.Metadata">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.Metadata.1.0.41.41862\lib\MakoIoT.Device.Services.Configuration.Metadata.dll</HintPath>
-    </Reference>
     <Reference Include="MakoIoT.Device.Services.Interface">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.44.15980\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>

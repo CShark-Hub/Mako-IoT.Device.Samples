@@ -43,12 +43,6 @@
     <Reference Include="MakoIoT.Device.Services.Configuration">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.38.57711\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="MakoIoT.Device.Services.Configuration.Metadata">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.Metadata.1.0.41.41862\lib\MakoIoT.Device.Services.Configuration.Metadata.dll</HintPath>
-    </Reference>
-    <Reference Include="MakoIoT.Device.Services.ConfigurationApi">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationApi.1.0.86.21738\lib\MakoIoT.Device.Services.ConfigurationApi.dll</HintPath>
-    </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationManager">
       <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.64.5942\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
     </Reference>

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Threading;
+﻿using System.Threading;
 using MakoIoT.Device;
 using MakoIoT.Device.Displays.Led;
 using MakoIoT.Device.Services.Configuration.Extensions;
-using MakoIoT.Device.Services.ConfigurationApi.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.ConfigurationManager.Extensions;
@@ -101,7 +99,6 @@ namespace MakoIoT.Samples.WBC.Device.App
                  {
                      o.Port = 80;
                      o.Protocol = HttpProtocol.Http;
-                      o.AddConfigurationApi();
                  })
 
                 .Build();
