@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <title>Waste Bins Calendar Configuration</title>
+    <link rel="stylesheet" href="bundle.css" />
+</head>
+<body>
+    <main class="wrapper">
+        <nav class="navigation">
+            <section class="container">
+                <a class="navigation-title" href="index.html">Waste Bins Calendar</a>
+                <ul class="navigation-list float-right">
+                    <li class="navigation-item">
+                        <a class="navigation-link" href="exit.html" title="Exit configuration mode and reboot device">Exit</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        <section class="container">
+            {messages}
+            <h5>Device Configuration</h5>
+            <form action="index.html" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>WiFi</legend>
+                    <label for="ssid">SSID</label>
+                    <input type="text" name="ssid" id="ssid" value="{ssid}" />
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" value="{password}" />
+                </fieldset>
+                <fieldset>
+                    <legend>Calendar</legend>
+                    <label for="calendarUrl">URL</label>
+                    <input type="url" name="calendarUrl" id="calendarUrl" value="{calendarUrl}" />
+                    <label for="httpsCert">HTTPS Certificate</label>
+                    <input type="file" name="httpsCertFile" id="httpsCert" />
+                    <label for="timeZone">Time zone</label>
+                    <input type="text" name="timeZone" id="timeZone" value="{timeZone}" />
+                </fieldset>
+                <fieldset>
+                    <legend>Bin names</legend>
+                    <label for="binBlack">White</label>
+                    <input type="text" name="binBlack" id="binBlack" />
+                    <label for="binBrown">Brown</label>
+                    <input type="text" name="binBrown" id="binBrown" />
+                    <label for="binYellow">Yellow</label>
+                    <input type="text" name="binYellow" id="binYellow" />
+                    <label for="binGreen">Green</label>
+                    <input type="text" name="binGreen" id="binGreen" />
+                    <label for="binBlue">Blue</label>
+                    <input type="text" name="binBlue" id="binBlue" />
+                    <label for="binRed">Red</label>
+                    <input type="text" name="binRed" id="binRed" />
+                </fieldset>
+                <button type="submit">Save</button>
+            </form>
+        </section>
+        <footer class="footer">
+            <section class="container">
+                <p>Powered by <a target="_blank" href="https://www.mako-iot.io">MAKO IoT</a>.</p>
+            </section>
+        </footer>
+    </main>
+</body>
+</html>
