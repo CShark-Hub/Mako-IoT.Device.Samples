@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Text;
 using MakoIoT.Device.LocalConfiguration.Extensions;
+using MakoIoT.Device.SecureClient;
 using MakoIoT.Device.Services.Configuration;
 using MakoIoT.Device.Services.FileStorage.Interface;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Server.WebServer;
 using MakoIoT.Device.Services.WiFi.Configuration;
+using MakoIoT.Samples.WBC.Device.Configuration;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
@@ -43,6 +46,29 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 _logger.Error("Error loading wifi configuration", exception);
             }
 
+            try
+            {
+                var wbcConfig = (WasteBinsCalendarConfig)_configService.GetConfigSection(WasteBinsCalendarConfig.SectionName, typeof(WasteBinsCalendarConfig));
+                HtmlParams.AddOrUpdate("calendarUrl", wbcConfig.CalendarUrl);
+                HtmlParams.AddOrUpdate("timeZone", wbcConfig.Timezone);
+                if (wbcConfig.BinsNames != null)
+                {
+                    HtmlParams.AddOrUpdate("binBlack", wbcConfig.BinsNames.GetValueOrDefault("Black", ""));
+                    HtmlParams.AddOrUpdate("binBrown", wbcConfig.BinsNames.GetValueOrDefault("Brown", ""));
+                    HtmlParams.AddOrUpdate("binYellow", wbcConfig.BinsNames.GetValueOrDefault("Yellow", ""));
+                    HtmlParams.AddOrUpdate("binGreen", wbcConfig.BinsNames.GetValueOrDefault("Green", ""));
+                    HtmlParams.AddOrUpdate("binBlue", wbcConfig.BinsNames.GetValueOrDefault("Blue", ""));
+                    HtmlParams.AddOrUpdate("binRed", wbcConfig.BinsNames.GetValueOrDefault("Red", ""));
+                }
+            }
+            catch (ConfigurationException)
+            {
+            }
+            catch (Exception exception)
+            {
+                _logger.Error("Error loading wifi configuration", exception);
+            }
+
 
             Render(e.Context.Response, false);
         }
@@ -56,7 +82,8 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             {
                 ParseForm(e.Context.Request, (fieldName, fileName, reader, boundary) =>
                 {
-
+                    if (fieldName == "httpsCertFile")
+                        return SaveFile(reader, boundary, Constants.CertificateFile);
                     return reader.ReadLine();
                 });
 
@@ -66,8 +93,21 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                     Password = (string)Form["password"],
                 });
 
-
-
+                _configService.UpdateConfigSection(WasteBinsCalendarConfig.SectionName, new WasteBinsCalendarConfig
+                {
+                    CalendarUrl = (string)Form["calendarUrl"],
+                    Timezone = (string)Form["timeZone"],
+                    BinsNames = new Hashtable()
+                    {
+                        { "Black", (string)Form["binBlack"] },
+                        { "Brown", (string)Form["binBrown"] },
+                        { "Yellow", (string)Form["binYellow"] },
+                        { "Green", (string)Form["binGreen"] },
+                        { "Blue", (string)Form["binBlue"] },
+                        { "Red", (string)Form["binRed"] }
+                    }
+                });
+                
                 HtmlParams.AddOrUpdate("messages", GetMessage("success", "Configuration updated"));
             }
             catch (Exception exception)

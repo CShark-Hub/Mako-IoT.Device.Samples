@@ -43,7 +43,7 @@
       <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.26.27934\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Interface">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.44.15980\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.45.4694\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>

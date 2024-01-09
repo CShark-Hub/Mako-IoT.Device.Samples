@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Threading;
 using MakoIoT.Device.Displays.Led;
-using Microsoft.Extensions.Logging;
+using MakoIoT.Device.Services.Interface;
 
 namespace MakoIoT.Samples.WBC.Device.Services
 {
     public class DisplayController : IDisplayController
     {
-        private readonly ILogger _logger;
+        private readonly ILog _logger;
         private readonly RgbPixel _pixel;
         private Thread _displayThread;
         private CancellationTokenSource _displayTokenSource;
         private CancellationToken _cancellationToken;
 
-        public DisplayController(IPixelDriver pixelDriver, ILogger logger)
+        public DisplayController(IPixelDriver pixelDriver, ILog logger)
         {
             _pixel = new RgbPixel(pixelDriver);
             _logger = logger;
@@ -131,14 +131,14 @@ namespace MakoIoT.Samples.WBC.Device.Services
             _cancellationToken = _displayTokenSource.Token;
             _displayThread = new Thread(() => displayMethod());
             _displayThread.Start();
-            _logger.LogDebug("New display method started");
+            _logger.Trace("New display method started");
         }
 
         private void Cancel()
         {
             if (_displayThread != null)
             {
-                _logger.LogDebug("Cancelling current display method");
+                _logger.Trace("Cancelling current display method");
                 _displayTokenSource.Cancel();
                 // _displayThread.Join(); //TODO: exception on Thread.Join()
                 Thread.Sleep(100); //once join is fixed, this can be removed

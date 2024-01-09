@@ -2,14 +2,13 @@
 using System.Collections;
 using System.IO;
 using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
+using MakoIoT.Device.SecureClient.Services;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Utilities.ICalParser;
 using MakoIoT.Device.Utilities.Invoker;
 using MakoIoT.Samples.WBC.Device.Configuration;
 using MakoIoT.Samples.WBC.Device.Extensions;
 using MakoIoT.Samples.WBC.Device.Model;
-using Microsoft.Extensions.Logging;
 
 namespace MakoIoT.Samples.WBC.Device.Services
 {
@@ -17,15 +16,21 @@ namespace MakoIoT.Samples.WBC.Device.Services
     {
         private readonly WasteBinsCalendarConfig _config;
         private readonly INetworkProvider _networkProvider;
-        private readonly ILogger _logger;
+        private readonly ILog _logger;
         private readonly HttpClient _httpClient;
         private readonly IDateTimeProvider _timeProvider;
         private readonly IDisplayController _displayController;
         private bool _hasValidTime;
 
+
         public BinsSchedule CurrentBinsSchedule { get; set; }
 
-        public BinsScheduleService(IConfigurationService configService, INetworkProvider networkProvider, ILogger logger, IDateTimeProvider timeProvider, IDisplayController displayController)
+        public BinsScheduleService(IConfigurationService configService, 
+            INetworkProvider networkProvider, 
+            ILog logger, 
+            IDateTimeProvider timeProvider, 
+            IDisplayController displayController,
+            IClientProvider clientProvider)
         {
             _config = (WasteBinsCalendarConfig)configService
                 .GetConfigSection(WasteBinsCalendarConfig.SectionName, typeof(WasteBinsCalendarConfig));
@@ -33,37 +38,44 @@ namespace MakoIoT.Samples.WBC.Device.Services
             _logger = logger;
             _timeProvider = timeProvider;
             _displayController = displayController;
-            _httpClient = new();
-            if (!String.IsNullOrEmpty(_config.ServiceCertificate))
-                _httpClient.HttpsAuthentCert = new X509Certificate(_config.ServiceCertificate);
+
+            if (string.IsNullOrEmpty(_config.CalendarUrl))
+            {
+                _displayController.DisplayUpdatingError();
+                return;
+            }
+
+            _httpClient = clientProvider.GetSecureHttpClient(_config.CalendarUrl);
         }
 
         public void UpdateSchedule()
         {
             if (!_networkProvider.IsConnected)
             {
-                _logger.LogDebug("Network not connected");
+                _logger.Trace("Network not connected");
+                
                 _networkProvider.Connect();
+
                 if (!_networkProvider.IsConnected)
                     throw new Exception("Could not connect to network");
             }
 
-            _logger.LogDebug("Connected to WIFI");
+            _logger.Trace("Connected to WIFI");
             _hasValidTime = true;
 
             Invoker.Retry(() =>
             {
-                _logger.LogDebug($"Sending GET request");
+                _logger.Trace($"Sending GET request");
                 using var response = _httpClient.Get(_config.CalendarUrl);
                 response.EnsureSuccessStatusCode();
                 CurrentBinsSchedule = ParseContent(response.Content.ReadAsStream());
             }, 3, (ex, attempt) =>
             {
-                _logger.LogError("HttpClient.Get exception", ex);
+                _logger.Error("HttpClient.Get exception", ex);
                 return true;
             });
             
-            _logger.LogInformation($"Schedule updated at {_timeProvider.UtcNow} (UTC)");
+            _logger.Information($"Schedule updated at {_timeProvider.UtcNow} (UTC)");
            
         }
 
@@ -73,10 +85,12 @@ namespace MakoIoT.Samples.WBC.Device.Services
             {
                 if (!_networkProvider.IsConnected)
                 {
-                    _logger.LogDebug("Network not connected");
+                    _logger.Trace("Network not connected");
                     _networkProvider.Connect();
+
                     if (!_networkProvider.IsConnected)
                         throw new Exception("Could not connect to network");
+
                     _hasValidTime = true;
                 }
             }
@@ -84,7 +98,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
             if (_hasValidTime)
             {
                 var localTime = _timeProvider.Now;
-                _logger.LogDebug($"Local time is {localTime}");
+                _logger.Trace($"Local time is {localTime}");
                 if (localTime.Hour < 12)
                 {
                     var bins = GetBinsForDate(localTime);
@@ -93,7 +107,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
                         _displayController.DisplayTodaysBins(bins.ToColorsArray());
                         return;
                     }
-                    _logger.LogError("No data for today");
+                    _logger.Error("No data for today");
                 }
                 else
                 {
@@ -103,12 +117,12 @@ namespace MakoIoT.Samples.WBC.Device.Services
                         _displayController.DisplayTomorrowsBins(bins.ToColorsArray());
                         return;
                     }
-                    _logger.LogError("No data for tomorrow");
+                    _logger.Error("No data for tomorrow");
                 }
             }
             else
             {
-                _logger.LogError("Current date/time not available");
+                _logger.Error("Current date/time not available");
             }
 
             _displayController.DisplayError();
@@ -174,7 +188,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError("Error updating schedule", ex);
+                    _logger.Error("Error updating schedule", ex);
                     _displayController.DisplayUpdatingError();
                 }
             }

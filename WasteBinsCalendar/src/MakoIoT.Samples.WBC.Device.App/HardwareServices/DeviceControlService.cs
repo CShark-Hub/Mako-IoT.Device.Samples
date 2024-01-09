@@ -1,4 +1,5 @@
 ﻿using MakoIoT.Device.Services.ConfigurationManager.Interface;
+using MakoIoT.Device.Services.Interface;
 using MakoIoT.Samples.WBC.Device.Services;
 using Microsoft.Extensions.Logging;
 using nanoFramework.Runtime.Native;
@@ -7,10 +8,10 @@ namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
 {
     public class DeviceControlService : IDeviceControl
     {
-        private readonly ILogger _logger;
+        private readonly ILog _logger;
         private readonly IDisplayController _displayController;
 
-        public DeviceControlService(ILogger logger, IDisplayController displayController)
+        public DeviceControlService(ILog logger, IDisplayController displayController)
         {
             _logger = logger;
             _displayController = displayController;
@@ -18,7 +19,7 @@ namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
 
         public void Reboot()
         {
-            _logger.LogInformation("Rebooting...");
+            _logger.Information("Rebooting...");
             Power.RebootDevice();
         }
 

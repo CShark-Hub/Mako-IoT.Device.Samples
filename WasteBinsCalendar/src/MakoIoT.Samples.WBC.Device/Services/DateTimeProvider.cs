@@ -2,7 +2,6 @@
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Utilities.TimeZones;
 using MakoIoT.Samples.WBC.Device.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace MakoIoT.Samples.WBC.Device.Services
 {
@@ -13,7 +12,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
         public DateTime UtcNow => DateTime.UtcNow;
         public DateTime Now => _tz == null ? DateTime.UtcNow : _tz.GetLocalTime(DateTime.UtcNow);
 
-        public DateTimeProvider(IConfigurationService configService, ILogger logger)
+        public DateTimeProvider(IConfigurationService configService, ILog logger)
         {
             var config = (WasteBinsCalendarConfig)configService.GetConfigSection(WasteBinsCalendarConfig.SectionName,
                 typeof(WasteBinsCalendarConfig));
@@ -24,7 +23,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
             }
             catch (Exception e)
             {
-                logger.LogError("Invalid time zone configuration. UTC time will be used.", e);
+                logger.Error("Invalid time zone configuration. UTC time will be used.", e);
             }
         }
     }

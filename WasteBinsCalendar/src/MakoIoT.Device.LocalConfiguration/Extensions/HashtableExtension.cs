@@ -11,5 +11,12 @@ namespace MakoIoT.Device.LocalConfiguration.Extensions
             else
                 t.Add(key, value);
         }
+
+        public static object GetValueOrDefault(this Hashtable t, object key, object defaultValue = null)
+        {
+            if (t.Contains(key))
+                return t[key];
+            return defaultValue;
+        }
     }
 }

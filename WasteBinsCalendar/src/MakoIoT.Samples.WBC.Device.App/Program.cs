@@ -1,6 +1,8 @@
 ﻿using System.Threading;
 using MakoIoT.Device;
 using MakoIoT.Device.Displays.Led;
+using MakoIoT.Device.LocalConfiguration.Extensions;
+using MakoIoT.Device.SecureClient.Services;
 using MakoIoT.Device.Services.Configuration.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.ConfigurationManager.Events;
@@ -44,6 +46,8 @@ namespace MakoIoT.Samples.WBC.Device.App
                     services.AddSingleton(typeof(IPixelDriver), new PwmPixelDriver(27, 26, 25, true));
 
                     services.AddSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
+
+                    services.AddTransient(typeof(IClientProvider), typeof(ClientProvider));
                 })
 #if DEBUG
                 .AddLogging(new LoggerConfig(LogEventLevel.Trace))
@@ -59,18 +63,22 @@ namespace MakoIoT.Samples.WBC.Device.App
                         {
                             new SchedulerTaskConfig { TaskId = nameof(ShowBinsScheduleTask), IntervalMs = 30000 }
                         }
-                    });
+                    }, true);
 
-                    cfg.WriteDefault(WiFiConfig.SectionName, new WiFiConfig());
+                    cfg.WriteDefault(WiFiConfig.SectionName, new WiFiConfig
+                    {
+                        ConnectionTimeout = 5
+                    }, true);
 
                     cfg.WriteDefault(WiFiAPConfig.SectionName, new WiFiAPConfig
                     {
-                        Ssid = "MAKO-IoT Device",
-                        Password = "CSHARK4Makers",
-                    });
+                        Ssid = "Waste Bins Calendar",
+                        Password = "makoiot",
+                    }, true);
 
                     cfg.WriteDefault(WasteBinsCalendarConfig.SectionName, new WasteBinsCalendarConfig
                     {
+                        CalendarUrl = "",
                         Timezone = "CET-1CEST,M3.5.0,M10.5.0/3",
                         BinsNames = new()
                         {
@@ -81,7 +89,7 @@ namespace MakoIoT.Samples.WBC.Device.App
                             { "papier", "Blue" },
                             { "SZOP", "Red" }
                         },
-                    });
+                    }, true);
                 })
                 .AddFileStorage()
                 .AddScheduler(options =>
@@ -99,6 +107,7 @@ namespace MakoIoT.Samples.WBC.Device.App
                  {
                      o.Port = 80;
                      o.Protocol = HttpProtocol.Http;
+                     o.AddConfigurationWebsite();
                  })
 
                 .Build();

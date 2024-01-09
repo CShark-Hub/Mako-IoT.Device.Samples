@@ -25,6 +25,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MakoIoT.Device.LocalConfiguration\MakoIoT.Device.LocalConfiguration.nfproj" />
+    <ProjectReference Include="..\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj" />
     <ProjectReference Include="..\MakoIoT.Samples.WBC.Device\MakoIoT.Samples.WBC.Device.nfproj" />
   </ItemGroup>
   <ItemGroup>
@@ -35,40 +37,40 @@
       <HintPath>..\..\packages\nanoFramework.Iot.Device.DhcpServer.1.2.407\lib\Iot.Device.DhcpServer.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device">
-      <HintPath>..\..\packages\MakoIoT.Device.1.0.48.60571\lib\MakoIoT.Device.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.1.0.49.6323\lib\MakoIoT.Device.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Displays.Led">
       <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.26.27934\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Configuration">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.38.57711\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.39.3446\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.ConfigurationManager">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.64.5942\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.66.33885\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.FileStorage">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.42.22010\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.FileStorage.1.0.43.44014\lib\MakoIoT.Device.Services.FileStorage.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Interface">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.44.15980\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.45.4694\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Logging">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.44.43576\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Logging.1.0.45.10740\lib\MakoIoT.Device.Services.Logging.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Mediator">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.38.6937\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.39.38843\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Scheduler">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Scheduler.1.0.44.31074\lib\MakoIoT.Device.Services.Scheduler.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Scheduler.1.0.45.38276\lib\MakoIoT.Device.Services.Scheduler.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Server">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.Server.1.0.46.39375\lib\MakoIoT.Device.Services.Server.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Server.1.0.47.24367\lib\MakoIoT.Device.Services.Server.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.WiFi">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.1.0.47.49098\lib\MakoIoT.Device.Services.WiFi.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.1.0.49.3780\lib\MakoIoT.Device.Services.WiFi.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.WiFi.AP">
-      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.AP.1.0.47.13918\lib\MakoIoT.Device.Services.WiFi.AP.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.AP.1.0.48.25077\lib\MakoIoT.Device.Services.WiFi.AP.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.Invoker">
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.Invoker.1.0.27.50780\lib\MakoIoT.Device.Utilities.Invoker.dll</HintPath>

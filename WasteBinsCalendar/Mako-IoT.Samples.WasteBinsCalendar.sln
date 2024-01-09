@@ -15,6 +15,8 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Samples.WBC.Device.
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Device.LocalConfiguration", "src\MakoIoT.Device.LocalConfiguration\MakoIoT.Device.LocalConfiguration.nfproj", "{216FB771-FF0A-482B-BE35-E27321693744}"
 EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Device.SecureClient", "src\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj", "{8D432A72-668D-4F1A-8E2D-507D6DFBA966}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,12 @@ Global
 		{216FB771-FF0A-482B-BE35-E27321693744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216FB771-FF0A-482B-BE35-E27321693744}.Release|Any CPU.Build.0 = Release|Any CPU
 		{216FB771-FF0A-482B-BE35-E27321693744}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +62,7 @@ Global
 		{75BBB3BC-8AAD-4210-A688-3C1BEC56037C} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 		{DD52E9B9-7DE3-43DF-A5F2-7D59BD82AB02} = {A1D0E3C5-D9E6-4EC8-BA95-DFC69E5EA941}
 		{216FB771-FF0A-482B-BE35-E27321693744} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
+		{8D432A72-668D-4F1A-8E2D-507D6DFBA966} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E967760-12B5-4261-9935-A04AD73A6476}
