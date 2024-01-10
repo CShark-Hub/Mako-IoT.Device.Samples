@@ -48,6 +48,8 @@ namespace MakoIoT.Samples.WBC.Device.App
                     services.AddSingleton(typeof(IDeviceControl), typeof(DeviceControlService));
 
                     services.AddTransient(typeof(IClientProvider), typeof(ClientProvider));
+
+                    services.AddSingleton(typeof(ConfigButton));
                 })
 #if DEBUG
                 .AddLogging(new LoggerConfig(LogEventLevel.Trace))
