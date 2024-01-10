@@ -50,18 +50,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
 
         public void UpdateSchedule()
         {
-            if (!_networkProvider.IsConnected)
-            {
-                _logger.Trace("Network not connected");
-                
-                _networkProvider.Connect();
-
-                if (!_networkProvider.IsConnected)
-                    throw new Exception("Could not connect to network");
-            }
-
-            _logger.Trace("Connected to WIFI");
-            _hasValidTime = true;
+            EnsureConnection();
 
             Invoker.Retry(() =>
             {
@@ -83,16 +72,7 @@ namespace MakoIoT.Samples.WBC.Device.Services
         {
             if (!_hasValidTime)
             {
-                if (!_networkProvider.IsConnected)
-                {
-                    _logger.Trace("Network not connected");
-                    _networkProvider.Connect();
-
-                    if (!_networkProvider.IsConnected)
-                        throw new Exception("Could not connect to network");
-
-                    _hasValidTime = true;
-                }
+                EnsureConnection();
             }
 
             if (_hasValidTime)
@@ -215,6 +195,23 @@ namespace MakoIoT.Samples.WBC.Device.Services
             }
 
             days.Add(new BinsDay { Day = date, Bins = bins });
+        }
+
+        private void EnsureConnection()
+        {
+            if (!_networkProvider.IsConnected)
+            {
+                _logger.Trace("Network not connected");
+
+                _networkProvider.Connect();
+
+                if (!_networkProvider.IsConnected)
+                    throw new Exception("Could not connect to network");
+
+                _logger.Trace("Connected to WIFI");
+            }
+
+            _hasValidTime = true;
         }
     }
 }

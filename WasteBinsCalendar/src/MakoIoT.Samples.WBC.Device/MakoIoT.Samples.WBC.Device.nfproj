@@ -19,12 +19,8 @@
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
     <Compile Include="Configuration\WasteBinsCalendarConfig.cs" />
-    <Compile Include="DelayCancellationTokenSource.cs" />
     <Compile Include="Extensions\BinsDayExtension.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="MakoNetworkHelper.cs" />
-    <Compile Include="MakoNetworkHelperInternal.cs" />
-    <Compile Include="MakoWiFiNetworkHelper.cs" />
     <Compile Include="Model\BinColors.cs" />
     <Compile Include="Model\BinsDay.cs" />
     <Compile Include="Model\BinsSchedule.cs" />
