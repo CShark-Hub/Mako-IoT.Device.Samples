@@ -8,7 +8,9 @@ using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.ConfigurationManager.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager.Interface;
+using MakoIoT.Device.Services.FileStorage;
 using MakoIoT.Device.Services.FileStorage.Extensions;
+using MakoIoT.Device.Services.FileStorage.Interface;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Logging.Configuration;
 using MakoIoT.Device.Services.Logging.Extensions;
@@ -50,6 +52,8 @@ namespace MakoIoT.Samples.WBC.Device.App
                     services.AddTransient(typeof(IClientProvider), typeof(ClientProvider));
 
                     services.AddSingleton(typeof(ConfigButton));
+
+                    services.AddTransient(typeof(IStreamStorageService), typeof(FileStorageService));
                 })
 #if DEBUG
                 .AddLogging(new LoggerConfig(LogEventLevel.Trace))
@@ -74,8 +78,8 @@ namespace MakoIoT.Samples.WBC.Device.App
 
                     cfg.WriteDefault(WiFiAPConfig.SectionName, new WiFiAPConfig
                     {
-                        Ssid = "Waste Bins Calendar",
-                        Password = "makoiot",
+                        Ssid = "WBC device",
+                        Password = "makoiotdevice",
                     }, true);
 
                     cfg.WriteDefault(WasteBinsCalendarConfig.SectionName, new WasteBinsCalendarConfig

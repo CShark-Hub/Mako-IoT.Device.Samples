@@ -53,12 +53,13 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 HtmlParams.AddOrUpdate("timeZone", wbcConfig.Timezone);
                 if (wbcConfig.BinsNames != null)
                 {
-                    HtmlParams.AddOrUpdate("binBlack", wbcConfig.BinsNames.GetValueOrDefault("Black", ""));
-                    HtmlParams.AddOrUpdate("binBrown", wbcConfig.BinsNames.GetValueOrDefault("Brown", ""));
-                    HtmlParams.AddOrUpdate("binYellow", wbcConfig.BinsNames.GetValueOrDefault("Yellow", ""));
-                    HtmlParams.AddOrUpdate("binGreen", wbcConfig.BinsNames.GetValueOrDefault("Green", ""));
-                    HtmlParams.AddOrUpdate("binBlue", wbcConfig.BinsNames.GetValueOrDefault("Blue", ""));
-                    HtmlParams.AddOrUpdate("binRed", wbcConfig.BinsNames.GetValueOrDefault("Red", ""));
+                    var bins = wbcConfig.BinsNames.Reverse();
+                    HtmlParams.AddOrUpdate("binBlack", bins.GetValueOrDefault("Black", ""));
+                    HtmlParams.AddOrUpdate("binBrown", bins.GetValueOrDefault("Brown", ""));
+                    HtmlParams.AddOrUpdate("binYellow", bins.GetValueOrDefault("Yellow", ""));
+                    HtmlParams.AddOrUpdate("binGreen", bins.GetValueOrDefault("Green", ""));
+                    HtmlParams.AddOrUpdate("binBlue", bins.GetValueOrDefault("Blue", ""));
+                    HtmlParams.AddOrUpdate("binRed", bins.GetValueOrDefault("Red", ""));
                 }
             }
             catch (ConfigurationException)
@@ -97,7 +98,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 {
                     CalendarUrl = (string)Form["calendarUrl"],
                     Timezone = (string)Form["timeZone"],
-                    BinsNames = new Hashtable()
+                    BinsNames = new Hashtable(6)
                     {
                         { "Black", (string)Form["binBlack"] },
                         { "Brown", (string)Form["binBrown"] },
@@ -105,7 +106,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                         { "Green", (string)Form["binGreen"] },
                         { "Blue", (string)Form["binBlue"] },
                         { "Red", (string)Form["binRed"] }
-                    }
+                    }.Reverse()
                 });
                 
                 HtmlParams.AddOrUpdate("messages", GetMessage("success", "Configuration updated"));
@@ -128,6 +129,8 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 writer.WriteLine(line);
                 line = reader.ReadLine();
             }
+            writer.Close();
+            _logger.Trace($"File {fileName} saved");
 
             return line;
         }
