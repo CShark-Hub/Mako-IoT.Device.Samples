@@ -9,6 +9,8 @@ using MakoIoT.Device.Services.FileStorage.Interface;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Server.WebServer;
 using MakoIoT.Device.Services.WiFi.Configuration;
+using MakoIoT.Device.Utilities.TimeZones;
+using MakoIoT.Device.Utilities.TimeZones.Serialization;
 using MakoIoT.Samples.WBC.Device.Configuration;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
@@ -19,7 +21,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         private readonly IConfigurationService _configService;
         private readonly IStreamStorageService _storageService;
 
-        public IndexController(ILog logger, IConfigurationService configService, IStreamStorageService storageService) 
+        public IndexController(ILog logger, IConfigurationService configService, IStreamStorageService storageService)
             : base(HtmlResources.GetString(HtmlResources.StringResources.index))
         {
             _logger = logger;
@@ -88,6 +90,12 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                     return reader.ReadLine();
                 });
 
+                if (!ValidateTimeZone((string)Form["timeZone"]))
+                {
+                    HtmlParams.AddOrUpdate("messages", GetMessage("danger", "Invalid time zone information"));
+                    Render(e.Context.Response, true);
+                }
+
                 _configService.UpdateConfigSection(WiFiConfig.SectionName, new WiFiConfig
                 {
                     Ssid = (string)Form["ssid"],
@@ -108,8 +116,8 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                         { "Red", (string)Form["binRed"] }
                     }.Reverse()
                 });
-                
-                HtmlParams.AddOrUpdate("messages", GetMessage("success", "Configuration updated"));
+
+                HtmlParams.AddOrUpdate("messages", GetMessage("success", $"Configuration updated"));
             }
             catch (Exception exception)
             {
@@ -122,8 +130,18 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
 
         private string SaveFile(StreamReader reader, string boundary, string fileName)
         {
+            //skip empty lines
+            string line;
+            do
+            {
+                line = reader.ReadLine();
+
+            } while (line == "");
+
+            if (line == null || line.StartsWith(boundary))
+                return line;
+
             using var writer = _storageService.WriteToFileStream(fileName);
-            string line = reader.ReadLine();
             while (line != null && !line.StartsWith(boundary))
             {
                 writer.WriteLine(line);
@@ -140,6 +158,23 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         {
             var html = new StringBuilder(HtmlResources.GetString(HtmlResources.StringResources.message));
             return html.Replace("{class}", type).Replace("{text}", text).ToString();
+        }
+
+        private bool ValidateTimeZone(string timeZone)
+        {
+            if (String.IsNullOrEmpty(timeZone))
+                return true;
+
+            try
+            {
+                TimeZoneConverter.FromPosixString(timeZone);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("Time zone parsing error", ex);
+                return false;
+            }
         }
     }
 }
