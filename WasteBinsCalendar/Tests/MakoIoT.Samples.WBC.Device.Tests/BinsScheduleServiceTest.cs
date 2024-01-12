@@ -23,6 +23,7 @@ namespace MakoIoT.Samples.WBC.Device.Tests
                 {
                     ConfigSection = new WasteBinsCalendarConfig
                     {
+                        CalendarUrl = "http://test.com",
                         BinsNames = new()
                         {
                             { "zmieszane", "Black" },
@@ -33,9 +34,10 @@ namespace MakoIoT.Samples.WBC.Device.Tests
                             { "SZOP", "Red" }
                         }
                     }
-                }, new MockNetworkProvider(), new DebugLogger("debug"),
+                }, new MockNetworkProvider(), new MockLog(),
                 new MockDateTimeProvider(),
-                new MockDisplayController());
+                new MockDisplayController(),
+                new MockClientProvider());
 
             var output = sut.GetBinsFromSummary(input);
 
@@ -72,6 +74,7 @@ END:VCALENDAR";
                 {
                     ConfigSection = new WasteBinsCalendarConfig
                     {
+                        CalendarUrl = "http://test.com",
                         BinsNames = new()
                         {
                             { "zmieszane", "Black" },
@@ -82,9 +85,10 @@ END:VCALENDAR";
                             { "SZOP", "Red" }
                         }
                     }
-                }, new MockNetworkProvider(), new DebugLogger("debug"),
+                }, new MockNetworkProvider(), new MockLog(),
                 dateProvider,
-                new MockDisplayController());
+                new MockDisplayController(),
+                new MockClientProvider());
 
             using var stream = new MemoryStream(Encoding.UTF8.GetBytes(input));
             var result = sut.ParseContent(stream);
@@ -143,6 +147,7 @@ END:VCALENDAR";
                 {
                     ConfigSection = new WasteBinsCalendarConfig
                     {
+                        CalendarUrl = "http://test.com",
                         BinsNames = new()
                         {
                             { "zmieszane", "Black" },
@@ -153,9 +158,10 @@ END:VCALENDAR";
                             { "SZOP", "Red" }
                         }
                     }
-                }, new MockNetworkProvider(), new DebugLogger("debug"),
+                }, new MockNetworkProvider(), new MockLog(),
                 dateProvider,
-                new MockDisplayController());
+                new MockDisplayController(),
+                new MockClientProvider());
 
             using var stream = new MemoryStream(Encoding.UTF8.GetBytes(input));
             var result = sut.ParseContent(stream);
@@ -194,6 +200,7 @@ END:VCALENDAR";
                 {
                     ConfigSection = new WasteBinsCalendarConfig
                     {
+                        CalendarUrl = "http://test.com",
                         BinsNames = new()
                         {
                             { "zmieszane", "Black" },
@@ -204,9 +211,10 @@ END:VCALENDAR";
                             { "SZOP", "Red" }
                         }
                     }
-                }, new MockNetworkProvider(), new DebugLogger("debug"),
+                }, new MockNetworkProvider(), new MockLog(),
                 dateProvider,
-                new MockDisplayController());
+                new MockDisplayController(),
+                new MockClientProvider());
 
             using var stream = new MemoryStream(Encoding.UTF8.GetBytes(input));
             var result = sut.ParseContent(stream);
@@ -225,12 +233,16 @@ END:VCALENDAR";
         
             var sut = new BinsScheduleService(new MockConfigurationService
                 {
-                    ConfigSection = new WasteBinsCalendarConfig {  }
-                }, 
+                    ConfigSection = new WasteBinsCalendarConfig
+                    {
+                        CalendarUrl = "http://test.com",
+                    }
+            }, 
                 new MockNetworkProvider(), 
-                new DebugLogger("debug"),
+                new MockLog(),
                 new MockDateTimeProvider {UtcNow = DateTime.Today.AddHours(9)}, //utc: 9am
-                display);
+                display,
+                new MockClientProvider());
         
             sut.SetValidTime();
 
@@ -256,12 +268,16 @@ END:VCALENDAR";
         
             var sut = new BinsScheduleService(new MockConfigurationService
                 {
-                    ConfigSection = new WasteBinsCalendarConfig {  }
-                },
+                    ConfigSection = new WasteBinsCalendarConfig
+                    {
+                        CalendarUrl = "http://test.com",
+                    }
+            },
                 new MockNetworkProvider(),
-                new DebugLogger("debug"),
+                new MockLog(),
                 new MockDateTimeProvider { UtcNow = DateTime.Today.AddHours(12) }, //utc: 11am
-                display);
+                display,
+                new MockClientProvider());
         
             sut.SetValidTime();
 
