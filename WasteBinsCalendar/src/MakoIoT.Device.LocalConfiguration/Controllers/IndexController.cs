@@ -10,7 +10,6 @@ using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Server.WebServer;
 using MakoIoT.Device.Services.WiFi.Configuration;
 using MakoIoT.Device.Utilities.TimeZones;
-using MakoIoT.Device.Utilities.TimeZones.Serialization;
 using MakoIoT.Samples.WBC.Device.Configuration;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
@@ -117,7 +116,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                     }.Reverse()
                 });
 
-                HtmlParams.AddOrUpdate("messages", GetMessage("success", $"Configuration updated"));
+                HtmlParams.AddOrUpdate("messages", GetMessage("success", "Configuration updated"));
             }
             catch (Exception exception)
             {
