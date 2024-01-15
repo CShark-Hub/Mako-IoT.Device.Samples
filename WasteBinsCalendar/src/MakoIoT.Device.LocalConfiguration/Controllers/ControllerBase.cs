@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.IO;
+﻿using System.IO;
 using System.Net;
 using System.Text;
-using System.Web;
+using System.Collections;
+using System.Diagnostics;
 using MakoIoT.Device.LocalConfiguration.Extensions;
-using MakoIoT.Device.Services.Server.WebServer;
+using System;
+using System.Web;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
@@ -13,17 +13,20 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
     {
         public delegate string FileUploadDelegate(string fieldName, string fileName, StreamReader contentsReader, string boundary);
 
-        protected string Html;
+        protected readonly string BaseFile;
         protected Hashtable HtmlParams;
         protected readonly Hashtable Form = new();
 
-        protected ControllerBase(string html)
+        private Hashtable _paramsInstances;
+        private int _sourceLength = 0;
+
+        protected ControllerBase(string baseFile)
         {
-            Html = html;
-            HtmlParams = ParseParams();
+            BaseFile = $"I:\\{baseFile}";
+            ParseParams();
         }
 
-        protected void Render(HttpListenerResponse response, bool copyFormToParams)
+        protected void Render(HttpListenerResponse response, bool copyFormToParams = false)
         {
             if (copyFormToParams)
             {
@@ -33,15 +36,93 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 }
             }
 
-            var htmlBuilder = new StringBuilder(Html);
-            foreach (var key in HtmlParams.Keys)
+            //compute response length
+            var totalLength = _sourceLength;
+            foreach (string key in _paramsInstances.Keys)
             {
-                htmlBuilder.Replace($"{{{key}}}", HtmlParams[key].ToString());
+                totalLength += (int)_paramsInstances[key] * ((string)HtmlParams[key]).Length;
             }
 
             response.ContentType = "text/html; charset=utf-8";
             response.StatusCode = (int)HttpStatusCode.OK;
-            MakoWebServer.OutPutStream(response, htmlBuilder.ToString());
+            response.ContentLength64 = totalLength;
+
+            using var reader = new StreamReader(File.OpenRead(BaseFile));
+            var writer = new StreamWriter(response.OutputStream);
+
+            int transferredLength = 0;
+
+            string line = reader.ReadLine();
+            while (line != null)
+            {
+                line = ReplaceParams(line);
+
+                transferredLength += line.Length;
+
+                writer.Write(line);
+                line = reader.ReadLine();
+            }
+
+            Debug.WriteLine($"totalLength={totalLength}, transferredLength={transferredLength}");
+
+            writer.Flush();
+            reader.Close();
+        }
+
+        protected void ParseParams()
+        {
+            HtmlParams = new Hashtable();
+            _paramsInstances = new Hashtable();
+
+            using var reader = new StreamReader(File.OpenRead(BaseFile));
+            string line = reader.ReadLine();
+            
+            while (line != null)
+            {
+                _sourceLength += line.Length;
+
+                if (line.IndexOf('{') > -1)
+                {
+                    var sp = line.Split('{', '}');
+                    for (int i = 1; i < sp.Length; i += 2)
+                    {
+                        _sourceLength -= sp[i].Length + 2;
+                        AddParam(sp[i]);
+                    }
+                }
+
+                line = reader.ReadLine();
+            }
+            reader.Close();
+
+        }
+
+        private void AddParam(string key)
+        {
+            if (HtmlParams.Contains(key))
+            {
+                _paramsInstances[key] = (int)_paramsInstances[key] + 1;
+            }
+            else
+            {
+                HtmlParams.Add(key, string.Empty);
+                _paramsInstances.Add(key, 1);
+            }
+        }
+
+        private string ReplaceParams(string s)
+        {
+            if (s.IndexOf('{') == -1)
+                return s;
+
+            var builder = new StringBuilder();
+            var sp = s.Split('{', '}');
+            for (int i = 0; i < sp.Length; i++)
+            {
+                builder.Append(i % 2 == 0 ? sp[i] : (string)HtmlParams[sp[i]]);
+            }
+
+            return builder.ToString();
         }
 
         protected void ParseForm(HttpListenerRequest request, FileUploadDelegate fileUploadDelegate = null)
@@ -65,23 +146,6 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             }
 
             throw new NotSupportedException("Content Type not supported");
-        }
-
-        protected Hashtable ParseParams()
-        {
-            var t = new Hashtable();
-            int p = 0;
-            p = Html.IndexOf('{', p);
-            while (p >= 0)
-            {
-                int startIndex = p + 1;
-                p = Html.IndexOf('}', p);
-                var key = Html.Substring(startIndex, p - startIndex);
-                if (!t.Contains(key))
-                    t.Add(key, "");
-                p = Html.IndexOf('{', p);
-            }
-            return t;
         }
 
         private void ParseFormUrlencoded(long contentLength, Stream requestStream)
@@ -116,7 +180,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                             : "";
 
                         line = reader.ReadLine();
-                        
+
                         if (line.ToLower().StartsWith("content-type:"))
                         {
                             //skip empty line

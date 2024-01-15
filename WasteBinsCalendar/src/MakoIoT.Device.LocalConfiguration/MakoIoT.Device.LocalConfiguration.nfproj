@@ -18,17 +18,13 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\ExitController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\StaticControllerBase.cs" />
     <Compile Include="Controllers\StaticFileController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Extensions\HashtableExtension.cs" />
     <Compile Include="Extensions\WebServerOptionsExtension.cs" />
-    <Compile Include="HtmlResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HtmlResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestStreamReader.cs" />
   </ItemGroup>
@@ -41,12 +37,6 @@
     <Content Include="Resources\exit.html" />
     <Content Include="Resources\index.html" />
     <Content Include="Resources\message.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="HtmlResources.resx">
-      <Generator>nFResXFileCodeGenerator</Generator>
-      <LastGenOutput>HtmlResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Iot.Device.DhcpServer">

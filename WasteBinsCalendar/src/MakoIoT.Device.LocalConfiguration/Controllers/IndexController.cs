@@ -21,7 +21,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         private readonly IStreamStorageService _storageService;
 
         public IndexController(ILog logger, IConfigurationService configService, IStreamStorageService storageService)
-            : base(HtmlResources.GetString(HtmlResources.StringResources.index))
+            : base("index.html")
         {
             _logger = logger;
             _configService = configService;
@@ -93,6 +93,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 {
                     HtmlParams.AddOrUpdate("messages", GetMessage("danger", "Invalid time zone information"));
                     Render(e.Context.Response, true);
+                    return;
                 }
 
                 _configService.UpdateConfigSection(WiFiConfig.SectionName, new WiFiConfig
@@ -153,9 +154,9 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         }
 
 
-        private static string GetMessage(string type, string text)
+        private string GetMessage(string type, string text)
         {
-            var html = new StringBuilder(HtmlResources.GetString(HtmlResources.StringResources.message));
+            var html = new StringBuilder(_storageService.ReadFile("message.html"));
             return html.Replace("{class}", type).Replace("{text}", text).ToString();
         }
 

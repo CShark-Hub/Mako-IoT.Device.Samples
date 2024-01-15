@@ -9,7 +9,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         private readonly IConfigManager _configManager;
 
         public ExitController(IConfigManager configManager)
-            : base(HtmlResources.GetString(HtmlResources.StringResources.exit))
+            : base("exit.html")
         {
             _configManager = configManager;
         }
