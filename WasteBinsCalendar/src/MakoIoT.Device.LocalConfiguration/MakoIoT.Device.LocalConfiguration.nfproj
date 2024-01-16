@@ -73,7 +73,7 @@
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.String.1.0.33.52014\lib\MakoIoT.Device.Utilities.String.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.TimeZones">
-      <HintPath>..\..\packages\MakoIoT.Device.Utilities.TimeZones.1.0.13.59166\lib\MakoIoT.Device.Utilities.TimeZones.dll</HintPath>
+      <HintPath>..\..\packages\MakoIoT.Device.Utilities.TimeZones.1.0.15.64645\lib\MakoIoT.Device.Utilities.TimeZones.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
