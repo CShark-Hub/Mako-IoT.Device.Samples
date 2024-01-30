@@ -31,15 +31,15 @@
   <ItemGroup>
     <None Include="FlashConfig.bat" />
     <None Include="packages.config" />
-    <None Include="Resources\bundle.css.gz" />
+    <None Include="FileSystem\bundle.css.gz" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bundle.css" />
-    <Content Include="Resources\exit.html" />
-    <Content Include="Resources\index.html">
+    <Content Include="FileSystem\exit.html" />
+    <Content Include="FileSystem\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\message.html" />
+    <Content Include="FileSystem\message.html" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Iot.Device.DhcpServer">
@@ -124,9 +124,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj" />
     <ProjectReference Include="..\MakoIoT.Samples.WBC.Device\MakoIoT.Samples.WBC.Device.nfproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FileSystem\" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>

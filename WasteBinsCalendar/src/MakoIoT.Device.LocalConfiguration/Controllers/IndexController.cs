@@ -16,14 +16,12 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
     public class IndexController : ControllerBase
     {
-        private readonly ILog _logger;
         private readonly IConfigurationService _configService;
         private readonly IStreamStorageService _storageService;
 
         public IndexController(ILog logger, IConfigurationService configService, IStreamStorageService storageService)
-            : base("index.html")
+            : base("index.html", logger)
         {
-            _logger = logger;
             _configService = configService;
             _storageService = storageService;
         }
@@ -44,7 +42,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             }
             catch (Exception exception)
             {
-                _logger.Error("Error loading wifi configuration", exception);
+                Logger.Error("Error loading wifi configuration", exception);
             }
 
             try
@@ -68,7 +66,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             }
             catch (Exception exception)
             {
-                _logger.Error("Error loading wifi configuration", exception);
+                Logger.Error("Error loading wifi configuration", exception);
             }
 
 
@@ -121,7 +119,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             }
             catch (Exception exception)
             {
-                _logger.Error("Error updating configuration", exception);
+                Logger.Error("Error updating configuration", exception);
                 HtmlParams.AddOrUpdate("messages", GetMessage("danger", "Error updating configuration"));
             }
 
@@ -148,7 +146,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 line = reader.ReadLine();
             }
             writer.Close();
-            _logger.Trace($"File {fileName} saved");
+            Logger.Trace($"File {fileName} saved");
 
             return line;
         }
@@ -172,7 +170,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             }
             catch (Exception ex)
             {
-                _logger.Error("Time zone parsing error", ex);
+                Logger.Error("Time zone parsing error", ex);
                 return false;
             }
         }

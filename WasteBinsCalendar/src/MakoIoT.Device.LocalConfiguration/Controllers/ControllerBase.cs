@@ -2,10 +2,10 @@
 using System.Net;
 using System.Text;
 using System.Collections;
-using System.Diagnostics;
 using MakoIoT.Device.LocalConfiguration.Extensions;
 using System;
 using System.Web;
+using MakoIoT.Device.Services.Interface;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
@@ -13,6 +13,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
     {
         public delegate string FileUploadDelegate(string fieldName, string fileName, StreamReader contentsReader, string boundary);
 
+        protected readonly ILog Logger;
         protected readonly string BaseFile;
         protected Hashtable HtmlParams;
         protected readonly Hashtable Form = new();
@@ -20,8 +21,9 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         private Hashtable _paramsInstances;
         private int _sourceLength = 0;
 
-        protected ControllerBase(string baseFile)
+        protected ControllerBase(string baseFile, ILog logger)
         {
+            Logger = logger;
             BaseFile = $"I:\\{baseFile}";
             ParseParams();
         }
@@ -63,7 +65,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 line = reader.ReadLine();
             }
 
-            Debug.WriteLine($"totalLength={totalLength}, transferredLength={transferredLength}");
+            Logger.Trace($"Http response totalLength={totalLength}, transferredLength={transferredLength}");
 
             writer.Flush();
             reader.Close();

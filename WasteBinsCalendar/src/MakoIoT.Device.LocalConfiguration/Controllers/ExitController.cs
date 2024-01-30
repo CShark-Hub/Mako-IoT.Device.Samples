@@ -4,12 +4,11 @@ using MakoIoT.Device.Services.Server.WebServer;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
-    public class ExitController : ControllerBase
+    public class ExitController : StaticControllerBase
     {
         private readonly IConfigManager _configManager;
 
         public ExitController(IConfigManager configManager)
-            : base("exit.html")
         {
             _configManager = configManager;
         }
@@ -18,7 +17,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         [Method("GET")]
         public void Get(WebServerEventArgs e)
         {
-            Render(e.Context.Response, false);
+            Render("exit.html", "text/html; charset=utf-8", e.Context.Response);
 
             new Thread(() =>
             {
