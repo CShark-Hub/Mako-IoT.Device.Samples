@@ -11,5 +11,12 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         {
             Render(e.Context.Response, fileName);
         }
+
+        [Route("favicon.ico")]
+        [Method("GET")]
+        public void GetFavicon(WebServerEventArgs e)
+        {
+            Render(e.Context.Response, "favicon.ico");
+        }
     }
 }
