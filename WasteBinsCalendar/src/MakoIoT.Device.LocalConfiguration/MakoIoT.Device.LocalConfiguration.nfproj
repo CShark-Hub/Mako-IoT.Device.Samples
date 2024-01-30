@@ -29,13 +29,16 @@
     <Compile Include="RequestStreamReader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FlashConfig.bat" />
     <None Include="packages.config" />
     <None Include="Resources\bundle.css.gz" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bundle.css" />
     <Content Include="Resources\exit.html" />
-    <Content Include="Resources\index.html" />
+    <Content Include="Resources\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\message.html" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +124,9 @@
   <ItemGroup>
     <ProjectReference Include="..\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj" />
     <ProjectReference Include="..\MakoIoT.Samples.WBC.Device\MakoIoT.Samples.WBC.Device.nfproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FileSystem\" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>

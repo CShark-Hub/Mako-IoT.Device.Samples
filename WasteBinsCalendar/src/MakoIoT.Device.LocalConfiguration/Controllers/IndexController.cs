@@ -51,7 +51,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             {
                 var wbcConfig = (WasteBinsCalendarConfig)_configService.GetConfigSection(WasteBinsCalendarConfig.SectionName, typeof(WasteBinsCalendarConfig));
                 HtmlParams.AddOrUpdate("calendarUrl", wbcConfig.CalendarUrl);
-                HtmlParams.AddOrUpdate("timeZone", wbcConfig.Timezone);
+                HtmlParams.AddOrUpdate("timeZone", wbcConfig.TimezoneString);
                 if (wbcConfig.BinsNames != null)
                 {
                     var bins = wbcConfig.BinsNames.Reverse();
@@ -105,7 +105,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                 _configService.UpdateConfigSection(WasteBinsCalendarConfig.SectionName, new WasteBinsCalendarConfig
                 {
                     CalendarUrl = (string)Form["calendarUrl"],
-                    Timezone = (string)Form["timeZone"],
+                    TimezoneString = (string)Form["timeZone"],
                     BinsNames = new Hashtable(6)
                     {
                         { "Black", (string)Form["binBlack"] },
@@ -167,7 +167,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
 
             try
             {
-                TimeZoneConverter.FromPosixString(timeZone);
+                TimeZoneConverter.FromPosixString(timeZone.Split(';')[0]);
                 return true;
             }
             catch (Exception ex)

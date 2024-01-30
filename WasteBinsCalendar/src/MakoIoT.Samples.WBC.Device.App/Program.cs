@@ -86,8 +86,6 @@ namespace MakoIoT.Samples.WBC.Device.App
 
                     cfg.WriteDefault(WasteBinsCalendarConfig.SectionName, new WasteBinsCalendarConfig
                     {
-                        CalendarUrl = "",
-                        Timezone = "CET-1CEST,M3.5.0,M10.5.0/3",
                     });
                 })
                 .AddFileStorage()

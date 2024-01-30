@@ -6,7 +6,8 @@ namespace MakoIoT.Samples.WBC.Device.Configuration
     {
         public string CalendarUrl { get; set; }
         public string ServiceCertificate { get; set; }
-        public string Timezone { get; set; }
+        public string Timezone => TimezoneString?.Split(';')[0];
+        public string TimezoneString { get; set; }
         public Hashtable BinsNames { get; set; }
         public static string SectionName => "WasteBinsCalendar";
     }

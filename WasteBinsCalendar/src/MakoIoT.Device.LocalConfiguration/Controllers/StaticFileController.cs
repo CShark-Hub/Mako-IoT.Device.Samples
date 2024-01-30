@@ -10,8 +10,8 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         public void BundleGet(WebServerEventArgs e)
         {
             e.Context.Response.Headers.Add("cache-control", "public, max-age=15552000");
-            // e.Context.Response.Headers.Add("content-encoding", "gzip");
-            Render("bundle.css", "text/css", e.Context.Response);
+            e.Context.Response.Headers.Add("content-encoding", "gzip");
+            Render("bundle.css.gz", "text/css", e.Context.Response);
         }
     }
 }

@@ -49,7 +49,7 @@ DIRnxv2KcydLRRAb4pP3mw0rHWLmAZ3UY1Aj6aeeoWh5sKZbmHOpjelwaGyiojSm
 dg0GZufYhBeYxQNXpdhWxDRIzAT890wqp77PXKTFMZaS0QaZz7k4o/K/VGJVWWkY
 1xuL4Zl8WvEcVWEK
 -----END CERTIFICATE-----",
-                Timezone = "CET-1CEST,M3.5.0,M10.5.0/3"
+                TimezoneString = "CET-1CEST,M3.5.0,M10.5.0/3"
             };
 
             var result = JsonSerializer.SerializeObject(obj);
