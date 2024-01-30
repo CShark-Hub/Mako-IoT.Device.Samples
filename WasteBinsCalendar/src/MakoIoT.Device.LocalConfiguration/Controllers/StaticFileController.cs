@@ -5,13 +5,11 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
     public class StaticFileController : StaticControllerBase
     {
-        [Route("bundle.css")]
+        [Route("static/{fileName}")]
         [Method("GET")]
-        public void BundleGet(WebServerEventArgs e)
+        public void Get(string fileName, WebServerEventArgs e)
         {
-            e.Context.Response.Headers.Add("cache-control", "public, max-age=15552000");
-            e.Context.Response.Headers.Add("content-encoding", "gzip");
-            Render("bundle.css.gz", "text/css", e.Context.Response);
+            Render(e.Context.Response, fileName);
         }
     }
 }

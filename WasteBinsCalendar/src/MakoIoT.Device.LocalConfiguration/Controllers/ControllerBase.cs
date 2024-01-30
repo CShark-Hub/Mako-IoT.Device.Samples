@@ -17,6 +17,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         protected readonly string BaseFile;
         protected Hashtable HtmlParams;
         protected readonly Hashtable Form = new();
+        protected string RootPath = "I:\\";
 
         private Hashtable _paramsInstances;
         private int _sourceLength = 0;
@@ -24,7 +25,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         protected ControllerBase(string baseFile, ILog logger)
         {
             Logger = logger;
-            BaseFile = $"I:\\{baseFile}";
+            BaseFile = $"{RootPath}{baseFile}";
             ParseParams();
         }
 

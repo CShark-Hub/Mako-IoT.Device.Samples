@@ -17,7 +17,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         [Method("GET")]
         public void Get(WebServerEventArgs e)
         {
-            Render("exit.html", "text/html; charset=utf-8", e.Context.Response);
+            Render(e.Context.Response, "exit.html");
 
             new Thread(() =>
             {
