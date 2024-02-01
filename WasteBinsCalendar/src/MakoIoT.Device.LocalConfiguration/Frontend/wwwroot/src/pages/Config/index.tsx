@@ -27,18 +27,19 @@ const Config: FunctionComponent<ConfigProps> = () => {
     red: "",
   });
 
-  const { showAlert } = useAlert();
+  const { showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch data when the component mounts
+    hideAlert();
     fetchData()
       .then((data) => {
         // Assuming 'data' has the shape { wifiSettings, calendarSettings, binNames }
         setWifiSettings(data.wifiSettings);
         setCalendarSettings(data.calendarSettings);
         setBinNames(data.binNames);
-        setLoading(false);
+        setLoading(false);        
       })
       .catch((error) => {
         console.error("Failed to fetch data:", error);
@@ -64,6 +65,7 @@ const Config: FunctionComponent<ConfigProps> = () => {
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
+    hideAlert();
     setLoading(true);
     // Process the form data, e.g., send to an API
     try {
@@ -84,6 +86,7 @@ const Config: FunctionComponent<ConfigProps> = () => {
 
   const handleCertificateUpload = (file: File) => {
     event.preventDefault();
+    hideAlert();
     setLoading(true);
     // Function to call the API and upload the file
     uploadCertificate(file)

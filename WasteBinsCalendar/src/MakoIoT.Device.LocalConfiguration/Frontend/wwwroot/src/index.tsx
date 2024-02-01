@@ -5,7 +5,7 @@ import { Header } from "./components/Header.jsx";
 import { Home } from "./pages/Home/index.jsx";
 import Config from "./pages/Config/index.jsx";
 import { NotFound } from "./pages/_404.jsx";
-import { Exit } from "./pages/Exit/index.js";
+import Exit from "./pages/Exit/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AlertProvider } from "./components/AlertContext.js";
 

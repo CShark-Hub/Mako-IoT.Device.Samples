@@ -23,6 +23,8 @@ namespace MakoIoT.Device.WebServer.TestServer.Controllers
                 return BadRequest("Upload a httpsCertificate.");
             }
 
+            Thread.Sleep(1000);
+
             return Ok();
         }
     }

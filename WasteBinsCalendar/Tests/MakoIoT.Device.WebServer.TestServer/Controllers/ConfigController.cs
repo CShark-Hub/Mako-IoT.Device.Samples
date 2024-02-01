@@ -34,6 +34,7 @@ namespace MakoIoT.Device.WebServer.TestServer.Controllers
                     red = "czerwony"
                 }
             };
+            Thread.Sleep(1000);
 
             return Ok(testData);
         }
@@ -46,6 +47,8 @@ namespace MakoIoT.Device.WebServer.TestServer.Controllers
             _logger.LogInformation($"{configData}");
             // Handle updating configuration here
             // For simplicity, this example just returns the received configData
+            Thread.Sleep(1000);
+
             return Ok();
         }
     }

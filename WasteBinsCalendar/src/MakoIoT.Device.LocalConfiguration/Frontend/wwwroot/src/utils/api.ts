@@ -76,3 +76,19 @@ export async function fetchData(): Promise<any> {
 
   return response.json();
 }
+
+
+export async function exit(): Promise<any> {
+  if (!appconfig) {
+    await loadConfig();
+  }
+  const response = await fetch(`${appconfig.backendUrl}/exit`, {
+    method: "GET",
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  //return response.json();
+}
