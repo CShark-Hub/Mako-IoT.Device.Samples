@@ -14,6 +14,8 @@ const HttpsCertificateUpload: FunctionComponent<
     const target = event.target as HTMLInputElement;
     if (target.files && target.files[0]) {
       setSelectedFile(target.files[0]);
+    } else {
+      setSelectedFile(null); // Ensure file selection is reset if the user cancels the file dialog
     }
   };
 
@@ -34,7 +36,12 @@ const HttpsCertificateUpload: FunctionComponent<
         id="httpsCertificateUpload"
         onChange={handleFileChange}
       />
-      <button type="button" className="btn btn-primary mt-2" onClick={handleUploadClick}>
+      <button
+        type="button"
+        className="btn btn-primary mt-2"
+        onClick={handleUploadClick}
+        disabled={!selectedFile}
+      >
         Upload
       </button>
     </div>

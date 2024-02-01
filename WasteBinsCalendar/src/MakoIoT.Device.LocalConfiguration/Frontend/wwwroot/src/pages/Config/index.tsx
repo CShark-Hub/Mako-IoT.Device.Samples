@@ -5,6 +5,8 @@ import CalendarSection from "../../components/Form/CalendarSection";
 import BinNamesSection from "../../components/Form/BinNamesSection";
 import HttpsCertificateUpload from "../../components/Form/HttpsCertificateUpload";
 import { submitFormData, fetchData, uploadCertificate } from "../../utils/api";
+import { useAlert } from "../../components/AlertContext";
+import Spinner from "../../components/Spinner";
 
 interface ConfigProps {
   // You can define props if needed, for example, for initial data or API functions
@@ -25,6 +27,9 @@ const Config: FunctionComponent<ConfigProps> = () => {
     red: "",
   });
 
+  const { showAlert } = useAlert();
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     // Fetch data when the component mounts
     fetchData()
@@ -33,9 +38,12 @@ const Config: FunctionComponent<ConfigProps> = () => {
         setWifiSettings(data.wifiSettings);
         setCalendarSettings(data.calendarSettings);
         setBinNames(data.binNames);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Failed to fetch data:", error);
+        showAlert('danger', 'Error loading settings.');
+        setLoading(false);
       });
   }, []);
 
@@ -56,6 +64,7 @@ const Config: FunctionComponent<ConfigProps> = () => {
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
+    setLoading(true);
     // Process the form data, e.g., send to an API
     try {
       const result = await submitFormData(
@@ -64,31 +73,36 @@ const Config: FunctionComponent<ConfigProps> = () => {
         binNames
       );
       console.log("Form submission result:", result);
-      // Optionally, show a success message or handle the response further
+      showAlert('success', 'Settings updated successfully!');
     } catch (error) {
       console.error("There was a problem submitting the form:", error);
-      // Optionally, show an error message
+      showAlert('danger', 'Error updating settings.');
     }
-
+    setLoading(false);
     console.log("Form Submitted", { wifiSettings, calendarSettings, binNames });
   };
 
   const handleCertificateUpload = (file: File) => {
     event.preventDefault();
+    setLoading(true);
     // Function to call the API and upload the file
     uploadCertificate(file)
       .then((response) => {
+        setLoading(false);
         console.log("Certificate uploaded successfully:", response);
-        // Handle success response
+        showAlert('success', 'Certificate file uploaded successfully!');
       })
       .catch((error) => {
+        setLoading(false);
         console.error("Error uploading certificate:", error);
-        // Handle error
+        showAlert('danger', 'Error uploading certificate file.');
       });
+      
   };
 
   return (
     <div className="container mt-5">
+      {loading && <Spinner />}
       <h1 className="mb-4">Configuration Settings</h1>
       <form onSubmit={handleSubmit}>
         <div className="row">

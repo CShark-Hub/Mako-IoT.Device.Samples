@@ -27,6 +27,7 @@ export function Header() {
                     </div>
                 </div>
             </nav>
+            <div id="alert-container"></div>
         </header>
     );
 }
