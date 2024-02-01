@@ -1,0 +1,6 @@
+@MakoIoT.Device.WebServer.TestServer_HostAddress = http://localhost:5047
+
+#GET {{MakoIoT.Device.WebServer.TestServer_HostAddress}}/weatherforecast/
+#Accept: application/json
+
+###

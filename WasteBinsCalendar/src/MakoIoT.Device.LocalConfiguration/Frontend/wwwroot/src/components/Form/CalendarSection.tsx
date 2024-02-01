@@ -5,7 +5,6 @@ interface CalendarSectionProps {
   timeZone: string;
   onURLChange: (value: string) => void;
   onTimeZoneChange: (value: string) => void;
-  onCertificateChange: (file: File) => void;
 }
 
 const CalendarSection: FunctionComponent<CalendarSectionProps> = ({
@@ -13,7 +12,6 @@ const CalendarSection: FunctionComponent<CalendarSectionProps> = ({
   timeZone,
   onURLChange,
   onTimeZoneChange,
-  onCertificateChange,
 }) => {
   return (
     <div className="mb-3">
@@ -32,17 +30,6 @@ const CalendarSection: FunctionComponent<CalendarSectionProps> = ({
           onChange={(e) => onURLChange(e.currentTarget.value)}
         />
       </div>
-
-      <div className="mb-3">
-        <label htmlFor="certificate">HTTPS Certificate:</label>
-        <input
-          type="file"
-          id="certificate"
-          className="form-control"
-          onChange={(e) => onCertificateChange(e.currentTarget.files[0])}
-        />
-      </div>
-
       <div className="mb-3">
         <label htmlFor="timeZone">Time Zone:</label>
         <select

@@ -34,7 +34,7 @@ export async function submitFormData(
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
 
-  return response.json();
+  //return response.json();
 }
 
 /**
@@ -56,7 +56,7 @@ export async function uploadCertificate(file: File): Promise<any> {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
 
-  return response.json();
+  //return response.json();
 }
 
 /**

@@ -23,7 +23,7 @@ const BinNamesSection: FunctionComponent<BinNamesSectionProps> = ({
             className="form-control"
             id={color}
             value={name}
-            // Include onChange handler
+            onChange={(e) => onBinNameChange(color, (e.target as HTMLInputElement).value)} // Type assertion here
           />
         </div>
       ))}

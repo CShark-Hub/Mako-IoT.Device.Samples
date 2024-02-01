@@ -3,7 +3,8 @@ import { useState, useEffect } from "preact/hooks";
 import WiFiSection from "../../components/Form/WiFiSection";
 import CalendarSection from "../../components/Form/CalendarSection";
 import BinNamesSection from "../../components/Form/BinNamesSection";
-import { submitFormData, fetchData } from '../../utils/api';
+import HttpsCertificateUpload from "../../components/Form/HttpsCertificateUpload";
+import { submitFormData, fetchData, uploadCertificate } from "../../utils/api";
 
 interface ConfigProps {
   // You can define props if needed, for example, for initial data or API functions
@@ -14,7 +15,6 @@ const Config: FunctionComponent<ConfigProps> = () => {
   const [calendarSettings, setCalendarSettings] = useState({
     url: "",
     timeZone: "",
-    httpsCertificate: null,
   });
   const [binNames, setBinNames] = useState({
     white: "",
@@ -27,14 +27,16 @@ const Config: FunctionComponent<ConfigProps> = () => {
 
   useEffect(() => {
     // Fetch data when the component mounts
-    fetchData().then(data => {
+    fetchData()
+      .then((data) => {
         // Assuming 'data' has the shape { wifiSettings, calendarSettings, binNames }
         setWifiSettings(data.wifiSettings);
         setCalendarSettings(data.calendarSettings);
         setBinNames(data.binNames);
-    }).catch(error => {
+      })
+      .catch((error) => {
         console.error("Failed to fetch data:", error);
-    });
+      });
   }, []);
 
   const handleWiFiChange = (key: keyof typeof wifiSettings, value: string) => {
@@ -55,16 +57,34 @@ const Config: FunctionComponent<ConfigProps> = () => {
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
     // Process the form data, e.g., send to an API
-	try {
-        const result = await submitFormData(wifiSettings, calendarSettings, binNames);
-        console.log('Form submission result:', result);
-        // Optionally, show a success message or handle the response further
+    try {
+      const result = await submitFormData(
+        wifiSettings,
+        calendarSettings,
+        binNames
+      );
+      console.log("Form submission result:", result);
+      // Optionally, show a success message or handle the response further
     } catch (error) {
-        console.error('There was a problem submitting the form:', error);
-        // Optionally, show an error message
+      console.error("There was a problem submitting the form:", error);
+      // Optionally, show an error message
     }
 
     console.log("Form Submitted", { wifiSettings, calendarSettings, binNames });
+  };
+
+  const handleCertificateUpload = (file: File) => {
+    event.preventDefault();
+    // Function to call the API and upload the file
+    uploadCertificate(file)
+      .then((response) => {
+        console.log("Certificate uploaded successfully:", response);
+        // Handle success response
+      })
+      .catch((error) => {
+        console.error("Error uploading certificate:", error);
+        // Handle error
+      });
   };
 
   return (
@@ -90,9 +110,6 @@ const Config: FunctionComponent<ConfigProps> = () => {
               onTimeZoneChange={(value) =>
                 handleCalendarChange("timeZone", value)
               }
-              onCertificateChange={(file) =>
-                handleCalendarChange("httpsCertificate", file)
-              }
             />
           </div>
         </div>
@@ -107,6 +124,13 @@ const Config: FunctionComponent<ConfigProps> = () => {
         <button type="submit" className="btn btn-primary mt-3">
           Submit
         </button>
+      </form>
+      <form>
+        <div className="row">
+          <div className="col-md-6">
+            <HttpsCertificateUpload onUpload={handleCertificateUpload} />
+          </div>
+        </div>
       </form>
     </div>
   );
