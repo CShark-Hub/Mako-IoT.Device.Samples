@@ -16,10 +16,10 @@ namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
             _mediator = mediator;
             _logger = logger;
 
-            var configModeButton = new GpioButton(buttonPin: 12);
+            var configModeButton = new GpioButton(buttonPin: 13);
             configModeButton.Press += ConfigModeButton_Press;
             
-            var resetToDefaultsButton = new GpioButton(buttonPin: 13);
+            var resetToDefaultsButton = new GpioButton(buttonPin: 12);
             resetToDefaultsButton.Press += ResetToDefaultsButton_Press;
 
         }
