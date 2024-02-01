@@ -1,4 +1,4 @@
-import { h, createContext } from 'preact';
+import { createContext } from 'preact';
 import { useState, useContext } from 'preact/hooks';
 import { createPortal } from 'preact/compat';
 import AlertMessage from './AlertMessage';

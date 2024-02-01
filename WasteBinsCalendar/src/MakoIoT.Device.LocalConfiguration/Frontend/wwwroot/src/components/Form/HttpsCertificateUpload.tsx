@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
 
 interface HttpsCertificateUploadProps {
@@ -28,7 +28,7 @@ const HttpsCertificateUpload: FunctionComponent<
   return (
     <div className="mb-3">
       <label htmlFor="httpsCertificateUpload" className="form-label">
-        HTTPS Certificate
+        Certificate(s) file
       </label>
       <input
         className="form-control"

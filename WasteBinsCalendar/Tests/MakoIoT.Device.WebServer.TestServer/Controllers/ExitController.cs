@@ -17,6 +17,8 @@ namespace MakoIoT.Device.WebServer.TestServer.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            _logger.LogInformation("EXIT");
+
             Thread.Sleep(1000);
 
             return Ok();

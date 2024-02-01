@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import { FunctionComponent } from "preact";
 
 interface BinNamesSectionProps {
   binNames: Record<string, string>;
@@ -9,6 +9,10 @@ const BinNamesSection: FunctionComponent<BinNamesSectionProps> = ({
   binNames,
   onBinNameChange,
 }) => {
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+  
   return (
     <div className="mb-3">
       <h3 className="mb-3">Bin Names</h3>
@@ -16,7 +20,7 @@ const BinNamesSection: FunctionComponent<BinNamesSectionProps> = ({
       {Object.entries(binNames).map(([color, name]) => (
         <div key={color} className="mb-3">
           <label htmlFor={color} className="form-label">
-            {color} Bin:
+            {capitalizeFirstLetter(color)}:
           </label>
           <input
             type="text"

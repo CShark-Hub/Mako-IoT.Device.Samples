@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import { FunctionComponent } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import Spinner from "../../components/Spinner";
 import { useAlert } from "../../components/AlertContext";

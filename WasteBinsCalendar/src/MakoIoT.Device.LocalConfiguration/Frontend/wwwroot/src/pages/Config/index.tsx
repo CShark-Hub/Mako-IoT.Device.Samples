@@ -1,9 +1,8 @@
-import { h, FunctionComponent } from "preact";
+import { FunctionComponent } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import WiFiSection from "../../components/Form/WiFiSection";
 import CalendarSection from "../../components/Form/CalendarSection";
 import BinNamesSection from "../../components/Form/BinNamesSection";
-import HttpsCertificateUpload from "../../components/Form/HttpsCertificateUpload";
 import { submitFormData, fetchData, uploadCertificate } from "../../utils/api";
 import { useAlert } from "../../components/AlertContext";
 import Spinner from "../../components/Spinner";
@@ -84,30 +83,11 @@ const Config: FunctionComponent<ConfigProps> = () => {
     console.log("Form Submitted", { wifiSettings, calendarSettings, binNames });
   };
 
-  const handleCertificateUpload = (file: File) => {
-    event.preventDefault();
-    hideAlert();
-    setLoading(true);
-    // Function to call the API and upload the file
-    uploadCertificate(file)
-      .then((response) => {
-        setLoading(false);
-        console.log("Certificate uploaded successfully:", response);
-        showAlert('success', 'Certificate file uploaded successfully!');
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.error("Error uploading certificate:", error);
-        showAlert('danger', 'Error uploading certificate file.');
-      });
-      
-  };
-
   return (
     <div className="container mt-5">
       {loading && <Spinner />}
       <h1 className="mb-4">Configuration Settings</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="row">
           <div className="col-md-6">
             <WiFiSection
@@ -138,17 +118,10 @@ const Config: FunctionComponent<ConfigProps> = () => {
             />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary mt-3">
-          Submit
+        <button type="button" className="btn btn-primary mt-3" onClick={handleSubmit}>
+          Update Settings
         </button>
-      </form>
-      <form>
-        <div className="row">
-          <div className="col-md-6">
-            <HttpsCertificateUpload onUpload={handleCertificateUpload} />
-          </div>
-        </div>
-      </form>
+      </form>      
     </div>
   );
 };

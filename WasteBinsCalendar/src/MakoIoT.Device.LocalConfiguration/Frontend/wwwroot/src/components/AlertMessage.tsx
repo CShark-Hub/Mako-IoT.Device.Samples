@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact';
+import { FunctionComponent } from 'preact';
 
 interface AlertMessageProps {
   type: 'success' | 'danger';
@@ -8,8 +8,8 @@ interface AlertMessageProps {
 
 const AlertMessage: FunctionComponent<AlertMessageProps> = ({ type, message, onClose }) => {
   return (
-    <div className={`alert alert-${type} m-2`} role="alert">
-      {message}
+    <div className={`alert alert-${type} d-flex justify-content-between align-items-center m-2`} role="alert">
+      <span>{message}</span>
       <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={onClose}></button>
     </div>
   );

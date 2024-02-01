@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from 'preact';
+import { FunctionComponent } from 'preact';
 
 const Spinner: FunctionComponent = () => (
   <div className="spinner-container">
