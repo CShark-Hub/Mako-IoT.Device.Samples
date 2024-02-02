@@ -53,7 +53,7 @@ const Config: FunctionComponent<ConfigProps> = () => {
 
   const handleCalendarChange = (
     key: keyof typeof calendarSettings,
-    value: string | File
+    value: string
   ) => {
     setCalendarSettings({ ...calendarSettings, [key]: value });
   };

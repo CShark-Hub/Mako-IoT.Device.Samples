@@ -23,7 +23,7 @@ namespace MakoIoT.Device.WebServer.TestServer.Controllers
             var testData = new
             {
                 wifiSettings = new { ssid = "TestSSID", password = "TestPassword" },
-                calendarSettings = new { url = "https://testcalendar.com/", timeZone = "PST8PDT,M3.2.0,M11.1.0;7", httpsCertificate = (string)null },
+                calendarSettings = new { url = "https://testcalendar.com/", timeZone = "PST8PDT,M3.2.0,M11.1.0;7" },
                 binNames = new
                 {
                     white = "bialy",
