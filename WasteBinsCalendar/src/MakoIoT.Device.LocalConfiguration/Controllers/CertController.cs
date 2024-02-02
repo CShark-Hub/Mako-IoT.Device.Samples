@@ -26,8 +26,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         {
             try
             {
-                ParseFormMultipart(e.Context.Request.Headers["content-type"], e.Context.Request.ContentLength64, e.Context.Request.InputStream, 
-                    (fieldName, fileName, reader, boundary) => SaveFile(reader, boundary, Constants.CertificateFile));
+                ParseFormMultipart(e.Context.Request.Headers["content-type"], e.Context.Request.InputStream);
             }
             catch (Exception exception)
             {
@@ -39,7 +38,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             MakoWebServer.OutputHttpCode(e.Context.Response, HttpStatusCode.OK);
         }
 
-        private void ParseFormMultipart(string contentType, long contentLength, Stream requestStream, ControllerBase.FileUploadDelegate fileUploadDelegate)
+        private void ParseFormMultipart(string contentType, Stream requestStream)
         {
             var boundary = $"--{contentType.Substring(contentType.IndexOf("boundary=") + 9)}";
             var finalBoundary = $"{boundary}--";
@@ -66,14 +65,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
                             reader.ReadLine();
 
                             //process file
-                            if (fileUploadDelegate != null)
-                            {
-                                string fileName = dispositionItems.Length > 2
-                                    ? dispositionItems[2].Split('=')[1].Trim('\"', ' ')
-                                    : "";
-
-                                line = fileUploadDelegate(fieldName, fileName, reader, boundary);
-                            }
+                            line = SaveFile(reader, boundary, Constants.CertificateFile);
                         }
                     }
                 }

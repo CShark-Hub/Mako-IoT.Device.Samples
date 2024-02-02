@@ -11,7 +11,7 @@ export function Home() {
 
   return <div className="container mt-5">
 	<h1>Device configuration mode</h1>
-	<p>Here you can configure your device's settings and upload https certificates.</p>
+	<p>Here you can configure your device's settings and upload HTTPS certificate.</p>
 	<p>Once you're done, click <a href="/exit">Exit</a> to return to normal operation mode.</p>
   </div>;
 }
