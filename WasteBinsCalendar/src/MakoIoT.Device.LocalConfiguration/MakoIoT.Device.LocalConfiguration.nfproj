@@ -18,29 +18,28 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
+    <Compile Include="Controllers\CertController.cs" />
+    <Compile Include="Controllers\ConfigController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\ExitController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\StaticControllerBase.cs" />
     <Compile Include="Controllers\StaticFileController.cs" />
-    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Extensions\HashtableExtension.cs" />
     <Compile Include="Extensions\WebServerOptionsExtension.cs" />
+    <Compile Include="Model\binNames.cs" />
+    <Compile Include="Model\calendarSettings.cs" />
+    <Compile Include="Model\configurationSettings.cs" />
+    <Compile Include="Model\wifiSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestStreamReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FileSystem\exit.html.gz" />
-    <None Include="FileSystem\favicon.ico.gz" />
     <None Include="FlashConfig.bat" />
     <None Include="packages.config" />
-    <None Include="FileSystem\bundle.css.gz" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bundle.css" />
-    <Content Include="FileSystem\index.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FileSystem\message.html" />
     <Content Include="Resources\exit.html" />
     <Content Include="Resources\favicon.ico" />
   </ItemGroup>
@@ -127,6 +126,9 @@
   <ItemGroup>
     <ProjectReference Include="..\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj" />
     <ProjectReference Include="..\MakoIoT.Samples.WBC.Device\MakoIoT.Samples.WBC.Device.nfproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FileSystem\" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>

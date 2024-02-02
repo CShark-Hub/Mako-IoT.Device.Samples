@@ -1,10 +1,11 @@
-﻿using System.Threading;
+﻿using System.Net;
+using System.Threading;
 using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.Server.WebServer;
 
 namespace MakoIoT.Device.LocalConfiguration.Controllers
 {
-    public class ExitController : StaticControllerBase
+    public class ExitController
     {
         private readonly IConfigManager _configManager;
 
@@ -13,11 +14,11 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
             _configManager = configManager;
         }
 
-        [Route("exit.html")]
+        [Route("api/exit")]
         [Method("GET")]
         public void Get(WebServerEventArgs e)
         {
-            Render(e.Context.Response, "exit.html");
+            MakoWebServer.OutputHttpCode(e.Context.Response, HttpStatusCode.OK);
 
             new Thread(() =>
             {
