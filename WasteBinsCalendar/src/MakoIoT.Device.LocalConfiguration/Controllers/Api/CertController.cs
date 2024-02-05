@@ -6,7 +6,7 @@ using MakoIoT.Device.Services.FileStorage.Interface;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Server.WebServer;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers
+namespace MakoIoT.Device.LocalConfiguration.Controllers.Api
 {
     public class CertController
     {

@@ -12,7 +12,7 @@ using nanoFramework.Json;
 using System.Text;
 using MakoIoT.Device.Utilities.TimeZones;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers
+namespace MakoIoT.Device.LocalConfiguration.Controllers.Api
 {
     public class ConfigController
     {
@@ -149,7 +149,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
 
         private bool ValidateTimeZone(string timeZone)
         {
-            if (String.IsNullOrEmpty(timeZone))
+            if (string.IsNullOrEmpty(timeZone))
                 return true;
 
             try

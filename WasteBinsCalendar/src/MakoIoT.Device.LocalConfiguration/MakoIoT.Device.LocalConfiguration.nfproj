@@ -18,11 +18,12 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="Controllers\CertController.cs" />
-    <Compile Include="Controllers\ConfigController.cs" />
-    <Compile Include="Controllers\ExitController.cs" />
-    <Compile Include="Controllers\StaticControllerBase.cs" />
-    <Compile Include="Controllers\StaticFileController.cs" />
+    <Compile Include="Controllers\Api\CertController.cs" />
+    <Compile Include="Controllers\Api\ConfigController.cs" />
+    <Compile Include="Controllers\Api\ExitController.cs" />
+    <Compile Include="Controllers\Web\StaticControllerBase.cs" />
+    <Compile Include="Controllers\Web\AppconfigController.cs" />
+    <Compile Include="Controllers\Web\StaticWebFilesController.cs" />
     <Compile Include="Extensions\HashtableExtension.cs" />
     <Compile Include="Extensions\WebServerOptionsExtension.cs" />
     <Compile Include="Model\binNames.cs" />

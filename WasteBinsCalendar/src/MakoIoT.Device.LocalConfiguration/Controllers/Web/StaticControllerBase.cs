@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers
+namespace MakoIoT.Device.LocalConfiguration.Controllers.Web
 {
     public abstract class StaticControllerBase
     {
@@ -78,7 +78,7 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers
         private string GetMimeType(string fileName)
         {
             var s = fileName.Split('.');
-            return KnownMimeTypes.Contains(s[s.Length-1]) ? (string)KnownMimeTypes[s[s.Length-1]] : DefaultMimeType;
+            return KnownMimeTypes.Contains(s[s.Length - 1]) ? (string)KnownMimeTypes[s[s.Length - 1]] : DefaultMimeType;
         }
     }
 }
