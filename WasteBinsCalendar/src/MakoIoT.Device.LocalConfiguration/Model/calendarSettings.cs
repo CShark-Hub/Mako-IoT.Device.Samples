@@ -1,4 +1,5 @@
-﻿namespace MakoIoT.Device.LocalConfiguration.Model
+﻿// ReSharper disable InconsistentNaming
+namespace MakoIoT.Device.LocalConfiguration.Model
 {
     public class calendarSettings
     {
