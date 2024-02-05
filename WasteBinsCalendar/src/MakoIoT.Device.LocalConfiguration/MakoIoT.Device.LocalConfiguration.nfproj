@@ -34,6 +34,7 @@
     <Compile Include="RequestStreamReader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CopyFrontendToFileSystem.bat" />
     <None Include="FlashConfig.bat" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -123,7 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FileSystem\" />
-    <Folder Include="Frontend\wwwroot\" />
+    <Folder Include="Frontend\" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>
