@@ -1,4 +1,5 @@
 import { FunctionComponent } from "preact";
+import Tooltip from "../Tooltip";
 
 interface CalendarSectionProps {
   url: string;
@@ -20,8 +21,9 @@ const CalendarSection: FunctionComponent<CalendarSectionProps> = ({
       <div className="mb-3">
         <label htmlFor="url" className="form-label">
           URL:
+          <Tooltip text="The URL of your trash collection calendar. It might be published by trash collection company or you can prepare it yourself e.g. with Google Calendar, then enter its public URL here. 
+NOTE: If the URL is https:// you need to provide certificate in Certificates section."/>          
         </label>
-
         <input
           type="text"
           id="url"
@@ -31,7 +33,7 @@ const CalendarSection: FunctionComponent<CalendarSectionProps> = ({
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="timeZone">Time Zone:</label>
+        <label htmlFor="timeZone">Time Zone:<Tooltip text="Your local time zone."/></label>
         <select
           id="timeZone"
           className="form-select"

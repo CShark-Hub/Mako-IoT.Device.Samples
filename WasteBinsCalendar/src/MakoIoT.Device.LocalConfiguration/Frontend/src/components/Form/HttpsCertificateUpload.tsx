@@ -28,7 +28,7 @@ const HttpsCertificateUpload: FunctionComponent<
   return (
     <div className="mb-3">
       <label htmlFor="httpsCertificateUpload" className="form-label">
-        Certificate(s) file
+        Certificate file:
       </label>
       <input
         className="form-control"

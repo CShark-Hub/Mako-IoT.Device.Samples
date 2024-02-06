@@ -11,7 +11,8 @@ export function Home() {
 
   return <div className="container mt-5">
 	<h1>Device configuration mode</h1>
-	<p>Here you can configure your device's settings and upload HTTPS certificate.</p>
+	<p>Here you can configure your device's settings. Go to <a href="/configuration">Configuration</a> section and input your settings.</p>
 	<p>Once you're done, click <a href="/exit">Exit</a> to return to normal operation mode.</p>
+	<p>Note: While you are connected to this device's WiFi network (AP) you won't have internet access.</p>
   </div>;
 }

@@ -1,4 +1,5 @@
 import { FunctionComponent } from "preact";
+import Tooltip from "../Tooltip";
 
 interface BinNamesSectionProps {
   binNames: Record<string, string>;
@@ -15,7 +16,7 @@ const BinNamesSection: FunctionComponent<BinNamesSectionProps> = ({
   
   return (
     <div className="mb-3">
-      <h3 className="mb-3">Bin Names</h3>
+      <h3 className="mb-3">Bin Names<Tooltip text='Here you enter the text which identifies each bin in the calendar. For example if you enter "glass" under green, green light will show on the days with "glass" text in the calendar.'/></h3>
 
       {Object.entries(binNames).map(([color, name]) => (
         <div key={color} className="mb-3">

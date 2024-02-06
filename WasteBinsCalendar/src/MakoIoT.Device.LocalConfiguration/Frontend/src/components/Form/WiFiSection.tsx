@@ -1,4 +1,5 @@
 import { FunctionComponent } from "preact";
+import Tooltip from "../Tooltip";
 
 interface WiFiSectionProps {
   ssid: string;
@@ -18,7 +19,7 @@ const WiFiSection: FunctionComponent<WiFiSectionProps> = ({
       <h3 className="mb-3">WiFi Settings</h3>
       <div className="mb-3">
         <label htmlFor="ssid" className="form-label">
-          SSID:
+          SSID:<Tooltip text="Your network name."/>
         </label>
         <input
           type="text"

@@ -41,6 +41,8 @@ const Certificates: FunctionComponent<ConfigProps> = () => {
     <div className="container mt-5">
       {loading && <Spinner />}
       <h1 className="mb-4">HTTPS Certificates</h1>
+      <p>If your calendar is published under an <i>https://</i> URL (most probably yes), then you need to provide certificate for the URL here. To export the certificate, open the calendar URL in web browser, then click on the lock icon, select certificate and export it to file. You need to select base-64 encoding format. You can find detailed instructions <a href="https://www.instructables.com/How-to-Download-the-SSL-Certificate-From-a-Website/">here</a>.</p>
+      <p>Once you're done, upload the certificate file with the form below.</p>
       <form>
         <div className="row">
           <div className="col-md-6">

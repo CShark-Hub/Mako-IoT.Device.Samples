@@ -32,5 +32,12 @@ namespace MakoIoT.Device.LocalConfiguration.Controllers.Web
         {
             Render(e.Context.Response, "favicon.ico");
         }
+
+        [Route("info-square.svg")]
+        [Method("GET")]
+        public void GetInfoSquare(WebServerEventArgs e)
+        {
+            Render(e.Context.Response, "info-square.svg");
+        }
     }
 }
