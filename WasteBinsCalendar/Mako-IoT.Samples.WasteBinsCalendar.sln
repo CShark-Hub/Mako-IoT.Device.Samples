@@ -15,6 +15,8 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "MakoIoT.Samples.WBC.Device.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakoIoT.Device.WebServer.TestServer", "Tests\MakoIoT.Device.WebServer.TestServer\MakoIoT.Device.WebServer.TestServer.csproj", "{02B5F83C-CEE8-433F-8A20-6177D5B79072}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MakoIoT.Samples.WBC.Shared", "src\MakoIoT.Samples.WBC.Shared\MakoIoT.Samples.WBC.Shared.shproj", "{2590E60E-9621-46A4-8F7E-D928868E5A34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,8 +53,14 @@ Global
 		{277991EE-F004-4856-981E-9A2F941CE111} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 		{75BBB3BC-8AAD-4210-A688-3C1BEC56037C} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 		{DD52E9B9-7DE3-43DF-A5F2-7D59BD82AB02} = {A1D0E3C5-D9E6-4EC8-BA95-DFC69E5EA941}
+		{02B5F83C-CEE8-433F-8A20-6177D5B79072} = {A1D0E3C5-D9E6-4EC8-BA95-DFC69E5EA941}
+		{2590E60E-9621-46A4-8F7E-D928868E5A34} = {BC16465B-D3DB-4371-8D24-56163DE0F288}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E967760-12B5-4261-9935-A04AD73A6476}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\MakoIoT.Samples.WBC.Shared\MakoIoT.Samples.WBC.Shared.projitems*{02b5f83c-cee8-433f-8a20-6177d5b79072}*SharedItemsImports = 5
+		src\MakoIoT.Samples.WBC.Shared\MakoIoT.Samples.WBC.Shared.projitems*{2590e60e-9621-46a4-8f7e-d928868e5a34}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

@@ -1,3 +1,4 @@
+using MakoIoT.Device.LocalConfiguration.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MakoIoT.Device.WebServer.TestServer.Controllers
@@ -14,40 +15,40 @@ namespace MakoIoT.Device.WebServer.TestServer.Controllers
             _logger = logger;
         }
 
-        // Example GET method to fetch configuration
         [HttpGet]
         public IActionResult Get()
         {
             _logger.LogInformation("GET config");
 
-            var testData = new
+            var settings = new configurationSettings()
             {
-                wifiSettings = new { ssid = "TestSSID", password = "TestPassword" },
-                calendarSettings = new { url = "https://testcalendar.com/", timeZone = "PST8PDT,M3.2.0,M11.1.0;7" },
-                binNames = new
+                wifiSettings = new wifiSettings { ssid = "TestSSID", password = "TestPassword" },
+                calendarSettings = new calendarSettings { url = "https://testcalendar.com/", timeZone = "PST8PDT,M3.2.0,M11.1.0;7" },
+                binNames = new binNames 
                 {
-                    white = "bialy",
-                    brown = "brazowy",
-                    yellow = "zolty",
-                    green = "zielony",
-                    blue = "niebieski",
-                    red = "czerwony"
+                    white = "mixed",
+                    brown = "compost",
+                    yellow = "plastic",
+                    green = "glass",
+                    blue = "paper",
+                    red = "batteries"
                 }
             };
             Thread.Sleep(1000);
 
-            return Ok(testData);
+            return Ok(settings);
         }
 
-        // Example POST method to update configuration
         [HttpPost]
-        public IActionResult Post([FromBody] dynamic configData)
+        public IActionResult Post([FromBody] configurationSettings configData)
         {
             _logger.LogInformation("POST config");
             _logger.LogInformation($"{configData}");
-            // Handle updating configuration here
-            // For simplicity, this example just returns the received configData
+
             Thread.Sleep(1000);
+
+            if (configData == null)
+                return BadRequest();
 
             return Ok();
         }

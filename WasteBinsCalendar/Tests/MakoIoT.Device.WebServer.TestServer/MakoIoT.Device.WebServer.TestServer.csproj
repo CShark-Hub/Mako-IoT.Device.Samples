@@ -11,4 +11,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <Import Project="..\..\src\MakoIoT.Samples.WBC.Shared\MakoIoT.Samples.WBC.Shared.projitems" Label="Shared" />
+
 </Project>

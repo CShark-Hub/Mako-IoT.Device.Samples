@@ -27,10 +27,6 @@
     <Compile Include="LocalConfiguration\Controllers\Api\ExitController.cs" />
     <Compile Include="LocalConfiguration\Controllers\Web\AppconfigController.cs" />
     <Compile Include="LocalConfiguration\Controllers\Web\StaticWebFilesController.cs" />
-    <Compile Include="LocalConfiguration\Model\binNames.cs" />
-    <Compile Include="LocalConfiguration\Model\calendarSettings.cs" />
-    <Compile Include="LocalConfiguration\Model\configurationSettings.cs" />
-    <Compile Include="LocalConfiguration\Model\wifiSettings.cs" />
     <Compile Include="Model\BinColors.cs" />
     <Compile Include="Model\BinsDay.cs" />
     <Compile Include="Model\BinsSchedule.cs" />
@@ -145,6 +141,7 @@
     <Folder Include="FileSystem\" />
     <Folder Include="LocalConfiguration\Frontend\" />
   </ItemGroup>
+  <Import Project="..\MakoIoT.Samples.WBC.Shared\MakoIoT.Samples.WBC.Shared.projitems" Label="Shared" />
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>
     <ProjectCapabilities>
