@@ -25,7 +25,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj" />
     <ProjectReference Include="..\MakoIoT.Samples.WBC.Device\MakoIoT.Samples.WBC.Device.nfproj" />
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +39,9 @@
     </Reference>
     <Reference Include="MakoIoT.Device.Displays.Led">
       <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.26.27934\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.SecureClient">
+      <HintPath>..\..\packages\MakoIoT.Device.SecureClient.1.0.2.22962\lib\MakoIoT.Device.SecureClient.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Services.Configuration">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.39.3446\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
