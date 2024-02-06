@@ -3,7 +3,7 @@ using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Server.WebServer;
 using MakoIoT.Device.Services.WiFi.AP.Configuration;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers.Web
+namespace MakoIoT.Samples.WBC.Device.LocalConfiguration.Controllers.Web
 {
     public class AppconfigController
     {

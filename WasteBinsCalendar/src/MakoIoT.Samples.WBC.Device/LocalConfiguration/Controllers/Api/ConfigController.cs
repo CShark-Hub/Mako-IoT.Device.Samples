@@ -1,18 +1,18 @@
+using System;
+using System.Collections;
+using System.Net;
+using System.Text;
+using MakoIoT.Device.LocalConfiguration.Model;
 using MakoIoT.Device.Services.Configuration;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Server.WebServer;
 using MakoIoT.Device.Services.WiFi.Configuration;
-using MakoIoT.Samples.WBC.Device.Configuration;
-using System;
-using System.Collections;
-using System.Net;
-using MakoIoT.Device.LocalConfiguration.Model;
-using MakoIoT.Device.LocalConfiguration.Extensions;
-using nanoFramework.Json;
-using System.Text;
 using MakoIoT.Device.Utilities.TimeZones;
+using MakoIoT.Device.WebServer.Extensions;
+using MakoIoT.Samples.WBC.Device.Configuration;
+using nanoFramework.Json;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers.Api
+namespace MakoIoT.Samples.WBC.Device.LocalConfiguration.Controllers.Api
 {
     public class ConfigController
     {

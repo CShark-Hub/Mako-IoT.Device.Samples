@@ -21,6 +21,16 @@
     <Compile Include="Configuration\WasteBinsCalendarConfig.cs" />
     <Compile Include="Extensions\BinsDayExtension.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="LocalConfiguration\Extensions\WebServerOptionsExtension.cs" />
+    <Compile Include="LocalConfiguration\Controllers\Api\CertController.cs" />
+    <Compile Include="LocalConfiguration\Controllers\Api\ConfigController.cs" />
+    <Compile Include="LocalConfiguration\Controllers\Api\ExitController.cs" />
+    <Compile Include="LocalConfiguration\Controllers\Web\AppconfigController.cs" />
+    <Compile Include="LocalConfiguration\Controllers\Web\StaticWebFilesController.cs" />
+    <Compile Include="LocalConfiguration\Model\binNames.cs" />
+    <Compile Include="LocalConfiguration\Model\calendarSettings.cs" />
+    <Compile Include="LocalConfiguration\Model\configurationSettings.cs" />
+    <Compile Include="LocalConfiguration\Model\wifiSettings.cs" />
     <Compile Include="Model\BinColors.cs" />
     <Compile Include="Model\BinsDay.cs" />
     <Compile Include="Model\BinsSchedule.cs" />
@@ -34,11 +44,32 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Iot.Device.DhcpServer">
+      <HintPath>..\..\packages\nanoFramework.Iot.Device.DhcpServer.1.2.454\lib\Iot.Device.DhcpServer.dll</HintPath>
+    </Reference>
     <Reference Include="MakoIoT.Device.Displays.Led">
       <HintPath>..\..\packages\MakoIoT.Device.Displays.Led.1.0.26.27934\lib\MakoIoT.Device.Displays.Led.dll</HintPath>
     </Reference>
+    <Reference Include="MakoIoT.Device.Services.Configuration">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Configuration.1.0.39.3446\lib\MakoIoT.Device.Services.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.Services.ConfigurationManager">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.ConfigurationManager.1.0.79.40503\lib\MakoIoT.Device.Services.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="MakoIoT.Device.Services.Interface">
       <HintPath>..\..\packages\MakoIoT.Device.Services.Interface.1.0.45.4694\lib\MakoIoT.Device.Services.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.Services.Mediator">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Mediator.1.0.39.38843\lib\MakoIoT.Device.Services.Mediator.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.Services.Server">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.Server.1.0.51.58665\lib\MakoIoT.Device.Services.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.Services.WiFi">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.1.0.52.44712\lib\MakoIoT.Device.Services.WiFi.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.Services.WiFi.AP">
+      <HintPath>..\..\packages\MakoIoT.Device.Services.WiFi.AP.1.0.55.37186\lib\MakoIoT.Device.Services.WiFi.AP.dll</HintPath>
     </Reference>
     <Reference Include="MakoIoT.Device.Utilities.ICalParser">
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.ICalParser.1.0.25.42837\lib\MakoIoT.Device.Utilities.ICalParser.dll</HintPath>
@@ -46,8 +77,14 @@
     <Reference Include="MakoIoT.Device.Utilities.Invoker">
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.Invoker.1.0.27.50780\lib\MakoIoT.Device.Utilities.Invoker.dll</HintPath>
     </Reference>
+    <Reference Include="MakoIoT.Device.Utilities.String">
+      <HintPath>..\..\packages\MakoIoT.Device.Utilities.String.1.0.33.52014\lib\MakoIoT.Device.Utilities.String.dll</HintPath>
+    </Reference>
     <Reference Include="MakoIoT.Device.Utilities.TimeZones">
       <HintPath>..\..\packages\MakoIoT.Device.Utilities.TimeZones.1.0.15.64645\lib\MakoIoT.Device.Utilities.TimeZones.dll</HintPath>
+    </Reference>
+    <Reference Include="MakoIoT.Device.WebServer">
+      <HintPath>..\..\packages\MakoIoT.Device.WebServer.1.0.4.42756\lib\MakoIoT.Device.WebServer.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
@@ -59,7 +96,7 @@
       <HintPath>..\..\packages\nanoFramework.Json.2.2.103\lib\nanoFramework.Json.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Logging">
-      <HintPath>..\..\packages\nanoFramework.Logging.1.1.76\lib\nanoFramework.Logging.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.Logging.1.1.81\lib\nanoFramework.Logging.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Events">
       <HintPath>..\..\packages\nanoFramework.Runtime.Events.1.11.15\lib\nanoFramework.Runtime.Events.dll</HintPath>
@@ -67,20 +104,26 @@
     <Reference Include="nanoFramework.System.Collections">
       <HintPath>..\..\packages\nanoFramework.System.Collections.1.5.31\lib\nanoFramework.System.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="nanoFramework.System.Runtime">
+      <HintPath>..\..\packages\nanoFramework.System.Runtime.1.0.6\lib\nanoFramework.System.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="nanoFramework.System.Text">
       <HintPath>..\..\packages\nanoFramework.System.Text.1.2.54\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.Device.Wifi">
-      <HintPath>..\..\packages\nanoFramework.System.Device.Wifi.1.5.71\lib\System.Device.Wifi.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Device.Wifi.1.5.76\lib\System.Device.Wifi.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>..\..\packages\nanoFramework.System.IO.FileSystem.1.1.32\lib\System.IO.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Streams">
       <HintPath>..\..\packages\nanoFramework.System.IO.Streams.1.1.52\lib\System.IO.Streams.dll</HintPath>
     </Reference>
     <Reference Include="System.Net">
-      <HintPath>..\..\packages\nanoFramework.System.Net.1.10.64\lib\System.Net.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Net.1.10.72\lib\System.Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>..\..\packages\nanoFramework.System.Net.Http.1.5.113\lib\System.Net.Http.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Net.Http.1.5.125\lib\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.RegularExpressions">
       <HintPath>..\..\packages\nanoFramework.System.Text.RegularExpressions.1.1.51\lib\System.Text.RegularExpressions.dll</HintPath>
@@ -94,6 +137,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MakoIoT.Device.SecureClient\MakoIoT.Device.SecureClient.nfproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FileSystem\" />
+    <Folder Include="LocalConfiguration\Frontend\" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>

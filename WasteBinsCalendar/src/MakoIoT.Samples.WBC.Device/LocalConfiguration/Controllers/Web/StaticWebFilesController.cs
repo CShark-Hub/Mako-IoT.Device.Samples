@@ -1,8 +1,9 @@
 ﻿using MakoIoT.Device.Services.Server.WebServer;
+using MakoIoT.Device.WebServer.Controllers;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers.Web
+namespace MakoIoT.Samples.WBC.Device.LocalConfiguration.Controllers.Web
 {
-    public class StaticWebFilesController : StaticControllerBase
+    public class StaticWebFilesController : StaticWebControllerBase
     {
         [Route("")]
         [Route("index.html")]

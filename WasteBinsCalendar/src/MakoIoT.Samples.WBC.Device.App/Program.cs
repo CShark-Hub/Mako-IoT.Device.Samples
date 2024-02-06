@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using MakoIoT.Device;
 using MakoIoT.Device.Displays.Led;
-using MakoIoT.Device.LocalConfiguration.Extensions;
 using MakoIoT.Device.SecureClient.Services;
 using MakoIoT.Device.Services.Configuration.Extensions;
 using MakoIoT.Device.Services.ConfigurationManager;
@@ -25,6 +24,7 @@ using MakoIoT.Device.Services.WiFi.Configuration;
 using MakoIoT.Device.Services.WiFi.Extensions;
 using MakoIoT.Samples.WBC.Device.App.HardwareServices;
 using MakoIoT.Samples.WBC.Device.Configuration;
+using MakoIoT.Samples.WBC.Device.LocalConfiguration.Extensions;
 using MakoIoT.Samples.WBC.Device.Services;
 using MakoIoT.Samples.WBC.Device.Tasks;
 using Microsoft.Extensions.DependencyInjection;

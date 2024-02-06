@@ -2,7 +2,6 @@
 using MakoIoT.Device.Services.ConfigurationManager.Events;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Device.Services.Mediator;
-using Microsoft.Extensions.Logging;
 
 namespace MakoIoT.Samples.WBC.Device.App.HardwareServices
 {

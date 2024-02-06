@@ -1,7 +1,6 @@
 ﻿using MakoIoT.Device.Services.ConfigurationManager.Interface;
 using MakoIoT.Device.Services.Interface;
 using MakoIoT.Samples.WBC.Device.Services;
-using Microsoft.Extensions.Logging;
 using nanoFramework.Runtime.Native;
 
 namespace MakoIoT.Samples.WBC.Device.App.HardwareServices

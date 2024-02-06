@@ -3,7 +3,7 @@ using System.Threading;
 using MakoIoT.Device.Services.ConfigurationManager;
 using MakoIoT.Device.Services.Server.WebServer;
 
-namespace MakoIoT.Device.LocalConfiguration.Controllers.Api
+namespace MakoIoT.Samples.WBC.Device.LocalConfiguration.Controllers.Api
 {
     public class ExitController
     {

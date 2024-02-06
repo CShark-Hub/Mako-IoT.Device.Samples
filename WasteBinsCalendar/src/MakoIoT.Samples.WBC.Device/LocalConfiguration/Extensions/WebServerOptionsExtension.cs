@@ -1,8 +1,8 @@
-﻿using MakoIoT.Device.LocalConfiguration.Controllers.Api;
-using MakoIoT.Device.LocalConfiguration.Controllers.Web;
-using MakoIoT.Device.Services.Server;
+﻿using MakoIoT.Device.Services.Server;
+using MakoIoT.Samples.WBC.Device.LocalConfiguration.Controllers.Api;
+using MakoIoT.Samples.WBC.Device.LocalConfiguration.Controllers.Web;
 
-namespace MakoIoT.Device.LocalConfiguration.Extensions
+namespace MakoIoT.Samples.WBC.Device.LocalConfiguration.Extensions
 {
     public static class WebServerOptionsExtension
     {
