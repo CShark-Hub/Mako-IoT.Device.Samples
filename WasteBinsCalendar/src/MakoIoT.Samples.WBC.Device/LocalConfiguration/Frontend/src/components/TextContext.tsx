@@ -12,8 +12,11 @@ export const TextsProvider = ({ children }) => {
     const config = useAppConfig();
 
     useEffect(() => {
-        fetchTexts(language, config).then(setTexts);
-    }, [language]);
+        if (config) {
+            fetchTexts(language, config).then(setTexts).catch(error => console.error("Failed to fetch texts:", error));
+        }
+    }, [language, config]); // Dependency on language ensures fetch on both initial render and language change
+    
 
     return (
         <TextsContext.Provider value={texts}>
