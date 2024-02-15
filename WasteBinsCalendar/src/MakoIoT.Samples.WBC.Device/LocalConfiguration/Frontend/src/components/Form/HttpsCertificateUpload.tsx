@@ -1,14 +1,14 @@
 import { FunctionComponent } from "preact";
 import { useState } from "preact/hooks";
+import useLocalize from "../../utils/useLocalize ";
 
 interface HttpsCertificateUploadProps {
   onUpload: (file: File) => void;
 }
 
-const HttpsCertificateUpload: FunctionComponent<
-  HttpsCertificateUploadProps
-> = ({ onUpload }) => {
+const HttpsCertificateUpload: FunctionComponent<HttpsCertificateUploadProps> = ({ onUpload }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const localize = useLocalize();
 
   const handleFileChange = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -28,7 +28,7 @@ const HttpsCertificateUpload: FunctionComponent<
   return (
     <div className="mb-3">
       <label htmlFor="httpsCertificateUpload" className="form-label">
-        Certificate file:
+      {localize('certificatesection.file.label')}
       </label>
       <input
         className="form-control"
@@ -42,7 +42,7 @@ const HttpsCertificateUpload: FunctionComponent<
         onClick={handleUploadClick}
         disabled={!selectedFile}
       >
-        Upload
+        {localize('certificatesection.upload')}
       </button>
     </div>
   );

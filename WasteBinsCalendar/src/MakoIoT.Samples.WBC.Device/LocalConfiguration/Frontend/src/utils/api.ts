@@ -1,15 +1,3 @@
-let appconfig = null;
-
-const loadConfig = async () => {
-  if (!appconfig) {
-    const response = await fetch("/appconfig.json");
-    if (!response.ok) {
-      throw new Error(`Failed to load configuration: ${response.statusText}`);
-    }
-    appconfig = await response.json();
-  }
-  return appconfig;
-};
 
 /**
  * Function to submit form data to the backend.
@@ -17,11 +5,10 @@ const loadConfig = async () => {
 export async function submitFormData(
   wifiSettings: any,
   calendarSettings: any,
-  binNames: any
+  binNames: any,
+  appconfig: any
 ): Promise<any> {
-  if (!appconfig) {
-    await loadConfig();
-  }
+
   const response = await fetch(`${appconfig.backendUrl}/config`, {
     method: "POST",
     headers: {
@@ -40,13 +27,13 @@ export async function submitFormData(
 /**
  * Function to upload HTTPS certificate.
  */
-export async function uploadCertificate(file: File): Promise<any> {
+export async function uploadCertificate(
+  file: File, 
+  appconfig: any
+): Promise<any> {
   const formData = new FormData();
   formData.append("httpsCertificate", file);
 
-  if (!appconfig) {
-    await loadConfig();
-  }
   const response = await fetch(`${appconfig.backendUrl}/cert`, {
     method: "POST",
     body: formData,
@@ -62,10 +49,7 @@ export async function uploadCertificate(file: File): Promise<any> {
 /**
  * Function to retrieve data from the backend.
  */
-export async function fetchData(): Promise<any> {
-  if (!appconfig) {
-    await loadConfig();
-  }
+export async function fetchData(appconfig: any): Promise<any> {
   const response = await fetch(`${appconfig.backendUrl}/config`, {
     method: "GET",
   });
@@ -78,10 +62,7 @@ export async function fetchData(): Promise<any> {
 }
 
 
-export async function exit(): Promise<any> {
-  if (!appconfig) {
-    await loadConfig();
-  }
+export async function exit(appconfig: any): Promise<any> {
   const response = await fetch(`${appconfig.backendUrl}/exit`, {
     method: "GET",
   });
@@ -91,4 +72,14 @@ export async function exit(): Promise<any> {
   }
 
   //return response.json();
+}
+
+export async function fetchTexts(lang, appconfig: any) {
+  // Fetch localized texts from the backend
+  // This is a simplified example. Adjust the URL and handling as needed.
+  const response = await fetch(`${appconfig.backendUrl}/texts?lang=${lang}`);
+  if (!response.ok) {
+      throw new Error('Failed to fetch texts');
+  }
+  return response.json();
 }

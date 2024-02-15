@@ -1,0 +1,51 @@
+{
+  "header.title": "Waste Bins Calendar",
+  "header.configuration": "Configuration",
+  "header.certificates": "Certificates",
+  "header.exit": "Exit",
+
+  "home.header": "Device Configuration Mode",
+  "home.p1": "Here you can configure your device's settings. Go to Configuration section and input your settings.",
+  "home.p2": "Once you're done, click Exit to return to normal operation mode.",
+  "home.p3": "Note: While you are connected to this device's WiFi network (AP) you won't have internet access.",
+
+  "wifisection.header": "WiFi Settings",
+  "wifisection.ssid.label": "SSID:",
+  "wifisection.ssid.tooltip": "Your network name.",
+  "wifisection.password.label": "Password:",
+
+  "calendarsection.header": "Calendar Settings",
+  "calendarsection.url.label": "URL:",
+  "calendarsection.url.tooltip": "The URL of your trash collection calendar. It might be published by trash collection company or you can prepare it yourself e.g. with Google Calendar, then enter its public URL here. \r\nNOTE: If the URL is https:// you need to provide certificate in Certificates section.",
+  "calendarsection.timezone.label": "Time Zone:",
+  "calendarsection.timezone.tooltip": "Your local time zone.",
+
+  "binnamessection.header": "Bin Names",
+  "binnamessection.header.tooltip": "Here you enter the text which identifies each bin in the calendar. For example if you enter \"glass\" under green, green light will show on the days with \"glass\" text in the calendar.",
+  "binnamessection.bin.white": "White:",
+  "binnamessection.bin.brown": "Brown:",
+  "binnamessection.bin.yellow": "Yellow:",
+  "binnamessection.bin.green": "Green:",
+  "binnamessection.bin.blue": "Blue:",
+  "binnamessection.bin.red": "Red:",
+
+  "certificatesection.file.label": "Certificate file:",
+  "certificatesection.upload": "Upload",
+
+  "configuration.header": "Configuration Settings",
+  "configuration.submit": "Update Settings",
+  "configuration.submit.success": "Settings updated successfully!",
+  "configuration.submit.error": "Error updating settings.",
+
+  "certificates.header": "HTTPS Certificates",
+  "certificates.p1": "If your calendar is published under an https:// URL (most probably yes), then you need to provide certificate for the URL here. To export the certificate, open the calendar URL in web browser, then click on the lock icon, select certificate and export it to file. You need to select base-64 encoding format. You can find detailed instructions here:",
+  "certificates.p2": "Once you're done, upload the certificate file with the form below.",
+  "certificates.upload.success": "Certificate file uploaded successfully!",
+  "certificates.upload.error": "Error uploading certificate file.",
+
+  "exit.success": "The device will now exit configuration mode and reboot. To enter configuration mode again, press configuration button on the device.",
+  "exit.error": "Error exiting confguration mode.",
+
+  "404.header": "Not found",
+  "spinner.loading": "Loading..."
+}

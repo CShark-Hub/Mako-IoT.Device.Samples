@@ -1,5 +1,6 @@
 import { FunctionComponent } from "preact";
 import Tooltip from "../Tooltip";
+import useLocalize from "../../utils/useLocalize ";
 
 interface WiFiSectionProps {
   ssid: string;
@@ -14,12 +15,14 @@ const WiFiSection: FunctionComponent<WiFiSectionProps> = ({
   onSSIDChange,
   onPasswordChange,
 }) => {
+  const localize = useLocalize();
+
   return (
     <div className="mb-3">
-      <h3 className="mb-3">WiFi Settings</h3>
+      <h3 className="mb-3">{localize('wifisection.header')}</h3>
       <div className="mb-3">
         <label htmlFor="ssid" className="form-label">
-          SSID:<Tooltip text="Your network name."/>
+        {localize('wifisection.ssid.label')}<Tooltip text={localize('wifisection.ssid.tooltip')}/>
         </label>
         <input
           type="text"
@@ -30,7 +33,7 @@ const WiFiSection: FunctionComponent<WiFiSectionProps> = ({
         />
 
         <label htmlFor="password" className="form-label">
-          Password:
+        {localize('wifisection.password.label')}
         </label>
         <input
           type="password"

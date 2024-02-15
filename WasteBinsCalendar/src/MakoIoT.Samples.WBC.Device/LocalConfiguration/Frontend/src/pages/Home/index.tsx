@@ -1,8 +1,10 @@
 import { useEffect } from "preact/hooks";
 import { useAlert } from "../../components/AlertContext";
+import useLocalize from "../../utils/useLocalize ";
 
 export function Home() {
 	const { showAlert, hideAlert } = useAlert();
+	const localize = useLocalize();
 
 	useEffect(() => {
 		// Fetch data when the component mounts
@@ -10,9 +12,9 @@ export function Home() {
 	  }, []);
 
   return <div className="container mt-5">
-	<h1>Device configuration mode</h1>
-	<p>Here you can configure your device's settings. Go to <a href="/configuration">Configuration</a> section and input your settings.</p>
-	<p>Once you're done, click <a href="/exit">Exit</a> to return to normal operation mode.</p>
-	<p>Note: While you are connected to this device's WiFi network (AP) you won't have internet access.</p>
+	<h1>{localize('home.header')}</h1>
+	<p>{localize('home.p1')}</p>
+	<p>{localize('home.p2')}</p>
+	<p>{localize('home.p3')}</p>
   </div>;
 }

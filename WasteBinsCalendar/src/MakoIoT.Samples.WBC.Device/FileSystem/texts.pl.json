@@ -1,0 +1,52 @@
+{
+  "header.title": "Kubełek Kalendarz",
+  "header.configuration": "Konfiguracja",
+  "header.certificates": "Certyfikaty",
+  "header.exit": "Wyjście",
+
+  "home.header": "Tryb Konfiguracyjny",
+  "home.p1": "Teraz możesz skonfigurować swoje urządzenie. Przejdź do sekcji Konfiguracja i wprowadź swoje ustawienia.",
+  "home.p2": "Kiedy skończysz, kliknij Wyjście w celu opuszczenia trybu konfiguracyjnego.",
+  "home.p3": "Uwaga: Podczas, gdy jesteś podłączona/y do sieci WiFi tego urządzenia (AP) nie będziesz miał/a dostępu do intenetu.",
+
+  "wifisection.header": "Sieć WiFi",
+  "wifisection.ssid.label": "SSID:",
+  "wifisection.ssid.tooltip": "Nazwa Twojej sieci.",
+  "wifisection.password.label": "Hasło:",
+
+  "calendarsection.header": "Kalendarz",
+  "calendarsection.url.label": "Adres URL:",
+  "calendarsection.url.tooltip": "Adres URL internetowego kanedarza wywozu śmieci z Twojej lokalizacji. Kalendarz może być publikowany przez firmę wywozową, bądź możesz go przygotować sam np. z Google Calendar. \r\nUwaga: Jeśli adres zaczyna się od https:// przejdź do sekcji Certyfikaty i wgraj certyfikat.",
+  "calendarsection.timezone.label": "Strefa czasowa:",
+  "calendarsection.timezone.tooltip": "Strefa czasowa dla Twojej lokalizacji.",
+
+  "binnamessection.header": "Rodzaje odpadów",
+  "binnamessection.header.tooltip": "Wprowadź słowa, które identyfikują rodzaj odpadów dla każdego kosza. Np. jeśli w polu \"zielony\" wpiszesz \"szkło\", w dni, w których w kalendarzu wystąpi to słowo, pojawi się światło zielone.",
+  "binnamessection.bin.white": "Biały:",
+  "binnamessection.bin.brown": "Brązowy:",
+  "binnamessection.bin.yellow": "Żółty:",
+  "binnamessection.bin.green": "Zielony:",
+  "binnamessection.bin.blue": "Niebieski:",
+  "binnamessection.bin.red": "Czerwony:",
+
+  "certificatesection.file.label": "Plik z certyfikatem:",
+  "certificatesection.upload": "Zapisz",
+
+  "configuration.header": "Konfiguracja",
+  "configuration.submit": "Zapisz ustawienia",
+  "configuration.submit.success": "Ustawienia zostały zapisane.",
+  "configuration.submit.error": "Wystąpił błąd przy zapisie ustawień.",
+
+  "certificates.header": "Certyfikaty HTTPS",
+  "certificates.p1": "Jeśli Twój kalendarz jest udostępniony pod adresem https:// (prawdopodobnie tak), wymagane jest dodanie pliku z certyfikatem. Aby pobrać certyfikat, należy wpisać adres kalendarza w przeglądarce, klinąć na ikonę kłódki, zaznaczyć certyfikat i wyekportować go do pliku (format .PEM / base-64). Szczegółowe instrukcje dostępne są tutaj:",
+  "certificates.p2": "Kiedy pobierzesz już plik z certyfikatem, załaduj go w formularzu poniżej.",
+  "certificates.upload.success": "Plik z certyfikatem został zapisany.",
+  "certificates.upload.error": "Błąd przy zapisie pliku z certyfikatem.",
+
+  "exit.success": "Urządzenie teraz wyjdzie z trybu konfiguracji i uruchomi się ponownie. Aby ponownie uruchomić tryb konfiguracji, użyj przycisku konfiguracji na urządzeniu.",
+  "exit.error": "Wystąpił błąd przy wychodzeniu z trybu konfiguracji.",
+
+  "404.header": "Strona nie istnieje",
+  "spinner.loading": "Ładowanie..."
+
+}

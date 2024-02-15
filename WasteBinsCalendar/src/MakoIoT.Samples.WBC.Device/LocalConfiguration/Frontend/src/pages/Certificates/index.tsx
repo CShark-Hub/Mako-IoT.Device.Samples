@@ -4,6 +4,8 @@ import HttpsCertificateUpload from "../../components/Form/HttpsCertificateUpload
 import { uploadCertificate } from "../../utils/api";
 import { useAlert } from "../../components/AlertContext";
 import Spinner from "../../components/Spinner";
+import { useAppConfig } from "../../components/ConfigContext";
+import useLocalize from "../../utils/useLocalize ";
 
 interface ConfigProps {
   // You can define props if needed, for example, for initial data or API functions
@@ -12,6 +14,8 @@ interface ConfigProps {
 const Certificates: FunctionComponent<ConfigProps> = () => {
   const { showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
+  const config = useAppConfig();
+  const localize = useLocalize();
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -23,16 +27,16 @@ const Certificates: FunctionComponent<ConfigProps> = () => {
     hideAlert();
     setLoading(true);
     // Function to call the API and upload the file
-    uploadCertificate(file)
+    uploadCertificate(file, config)
       .then((response) => {
         setLoading(false);
         console.log("Certificate uploaded successfully:", response);
-        showAlert('success', 'Certificate file uploaded successfully!');
+        showAlert('success', localize('certificates.upload.success'));
       })
       .catch((error) => {
         setLoading(false);
         console.error("Error uploading certificate:", error);
-        showAlert('danger', 'Error uploading certificate file.');
+        showAlert('danger', localize('certificates.upload.error'));
       });
       
   };
@@ -40,9 +44,9 @@ const Certificates: FunctionComponent<ConfigProps> = () => {
   return (
     <div className="container mt-5">
       {loading && <Spinner />}
-      <h1 className="mb-4">HTTPS Certificates</h1>
-      <p>If your calendar is published under an <i>https://</i> URL (most probably yes), then you need to provide certificate for the URL here. To export the certificate, open the calendar URL in web browser, then click on the lock icon, select certificate and export it to file. You need to select base-64 encoding format. You can find detailed instructions <a href="https://www.instructables.com/How-to-Download-the-SSL-Certificate-From-a-Website/">here</a>.</p>
-      <p>Once you're done, upload the certificate file with the form below.</p>
+      <h1 className="mb-4">{localize('certificates.header')}</h1>
+      <p>{localize('certificates.p1')} <a href="https://www.instructables.com/How-to-Download-the-SSL-Certificate-From-a-Website/">https://www.instructables.com/How-to-Download-the-SSL-Certificate-From-a-Website</a>.</p>
+      <p>{localize('certificates.p2')}</p>
       <form>
         <div className="row">
           <div className="col-md-6">

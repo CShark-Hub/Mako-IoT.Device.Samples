@@ -1,3 +1,4 @@
 {
-  "backendUrl": "http://localhost:5047/api"
+  "backendUrl": "http://localhost:5047/api",
+  "supportedLanguages": ["en", "pl"]
 }

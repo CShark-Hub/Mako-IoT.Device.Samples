@@ -3,9 +3,11 @@ import { useState, useEffect } from "preact/hooks";
 import WiFiSection from "../../components/Form/WiFiSection";
 import CalendarSection from "../../components/Form/CalendarSection";
 import BinNamesSection from "../../components/Form/BinNamesSection";
-import { submitFormData, fetchData, uploadCertificate } from "../../utils/api";
+import { submitFormData, fetchData } from "../../utils/api";
 import { useAlert } from "../../components/AlertContext";
 import Spinner from "../../components/Spinner";
+import { useAppConfig } from "../../components/ConfigContext";
+import useLocalize from "../../utils/useLocalize ";
 
 interface ConfigProps {
   // You can define props if needed, for example, for initial data or API functions
@@ -28,13 +30,12 @@ const Config: FunctionComponent<ConfigProps> = () => {
 
   const { showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(true);
+  const config = useAppConfig();
 
   useEffect(() => {
-    // Fetch data when the component mounts
     hideAlert();
-    fetchData()
+    fetchData(config)
       .then((data) => {
-        // Assuming 'data' has the shape { wifiSettings, calendarSettings, binNames }
         setWifiSettings(data.wifiSettings);
         setCalendarSettings(data.calendarSettings);
         setBinNames(data.binNames);
@@ -66,27 +67,30 @@ const Config: FunctionComponent<ConfigProps> = () => {
     event.preventDefault();
     hideAlert();
     setLoading(true);
-    // Process the form data, e.g., send to an API
+
     try {
       const result = await submitFormData(
         wifiSettings,
         calendarSettings,
-        binNames
+        binNames,
+        config
       );
       console.log("Form submission result:", result);
-      showAlert('success', 'Settings updated successfully!');
+      showAlert('success', localize('configuration.submit.success'));
     } catch (error) {
       console.error("There was a problem submitting the form:", error);
-      showAlert('danger', 'Error updating settings.');
+      showAlert('danger', localize('configuration.submit.error'));
     }
     setLoading(false);
     console.log("Form Submitted", { wifiSettings, calendarSettings, binNames });
   };
 
+  const localize = useLocalize();
+
   return (
     <div className="container mt-5">
       {loading && <Spinner />}
-      <h1 className="mb-4">Configuration Settings</h1>
+      <h1 className="mb-4">{localize('configuration.header')}</h1>
       <form>
         <div className="row">
           <div className="col-md-6">
@@ -119,7 +123,7 @@ const Config: FunctionComponent<ConfigProps> = () => {
           </div>
         </div>
         <button type="button" className="btn btn-primary mt-3" onClick={handleSubmit}>
-          Update Settings
+        {localize('configuration.submit')}
         </button>
       </form>      
     </div>

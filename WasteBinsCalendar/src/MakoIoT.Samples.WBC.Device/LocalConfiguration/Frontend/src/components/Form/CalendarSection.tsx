@@ -1,5 +1,6 @@
 import { FunctionComponent } from "preact";
 import Tooltip from "../Tooltip";
+import useLocalize from "../../utils/useLocalize ";
 
 interface CalendarSectionProps {
   url: string;
@@ -14,15 +15,15 @@ const CalendarSection: FunctionComponent<CalendarSectionProps> = ({
   onURLChange,
   onTimeZoneChange,
 }) => {
+  const localize = useLocalize();
+
   return (
     <div className="mb-3">
-      <h3 className="mb-3">Calendar Settings</h3>
-
+      <h3 className="mb-3">{localize('calendarsection.header')}</h3>
       <div className="mb-3">
         <label htmlFor="url" className="form-label">
-          URL:
-          <Tooltip text="The URL of your trash collection calendar. It might be published by trash collection company or you can prepare it yourself e.g. with Google Calendar, then enter its public URL here. 
-NOTE: If the URL is https:// you need to provide certificate in Certificates section."/>          
+        {localize('calendarsection.url.label')}
+          <Tooltip text={localize('calendarsection.url.tooltip')}/>          
         </label>
         <input
           type="text"
@@ -33,7 +34,7 @@ NOTE: If the URL is https:// you need to provide certificate in Certificates sec
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="timeZone">Time Zone:<Tooltip text="Your local time zone."/></label>
+        <label htmlFor="timeZone">{localize('calendarsection.timezone.label')}<Tooltip text={localize('calendarsection.timezone.tooltip')}/></label>
         <select
           id="timeZone"
           className="form-select"

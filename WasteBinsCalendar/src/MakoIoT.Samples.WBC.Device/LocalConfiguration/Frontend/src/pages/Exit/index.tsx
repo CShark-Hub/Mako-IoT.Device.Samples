@@ -3,6 +3,8 @@ import { useState, useEffect } from "preact/hooks";
 import Spinner from "../../components/Spinner";
 import { useAlert } from "../../components/AlertContext";
 import { exit } from "../../utils/api";
+import { useAppConfig } from "../../components/ConfigContext";
+import useLocalize from "../../utils/useLocalize ";
 
 interface ConfigProps {
   // You can define props if needed, for example, for initial data or API functions
@@ -11,18 +13,19 @@ interface ConfigProps {
 const Exit: FunctionComponent<ConfigProps> = () => {
   const { showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(true);
+  const config = useAppConfig();
+  const localize = useLocalize();
 
   useEffect(() => {
-    // Fetch data when the component mounts
     hideAlert();
-    exit()
+    exit(config)
       .then((data) => {
         setLoading(false); 
-		showAlert('success', 'The device will now exit configuration mode and reboot. To enter configuration mode again, press configuration button on the device.');       
+		showAlert('success', localize('exit.success'));       
       })
       .catch((error) => {
         console.error("Failed to fetch data:", error);
-        showAlert('danger', 'Error exitign confguration mode.');
+        showAlert('danger', localize('exit.error'));
         setLoading(false);
       });
   }, []);
