@@ -8,9 +8,9 @@ merge.method = "squash"
 merge.delete_branch_on_merge = true
 
 [approve]
-auto_approve_usernames = ["torbacz"]
+auto_approve_usernames = ["jazzman55"]
 
 [merge.automerge_dependencies]
 # only auto merge "minor" and "patch" and "major" version upgrades.
 versions = ["minor", "patch", "major"]
-usernames = ["torbacz"]
+usernames = ["jazzman55"]
